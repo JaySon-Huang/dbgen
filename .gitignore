@@ -5,3 +5,5 @@ rls*.log
 playground_bg.wasm
 playground.js
 *.tar.xz
+.vscode
+mock_data
