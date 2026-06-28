@@ -421,6 +421,73 @@ impl Format for CsvFormat<'_> {
     }
 }
 
+/// TSV formatter (Tab-Separated Values).
+///
+/// Unlike CSV, TSV does not wrap string values in double quotes and uses `\t`
+/// as the field delimiter. NULL values are represented as `\N` by default,
+/// matching the MySQL convention and the TiFlash `TabSeparated` format used by
+/// `dttool generate` / `dttool bench`.
+#[derive(Debug)]
+pub struct TsvFormat<'a>(pub &'a Options);
+
+impl Format for TsvFormat<'_> {
+    fn write_value(&self, writer: &mut dyn Write, value: &Value) -> Result<(), Error> {
+        match value {
+            Value::Null => writer.write_all(self.0.null_string.as_bytes()),
+            Value::Number(number) => number.write_io(writer, &self.0.true_string, &self.0.false_string),
+            // Bytes are written raw — no quoting, no escaping.
+            // Callers must ensure the data does not contain literal tab or
+            // newline characters that would break the TSV structure.
+            Value::Bytes(bytes) => writer.write_all(bytes.as_bytes()),
+            Value::Timestamp(timestamp) => write_timestamp(writer, "", timestamp),
+            Value::Interval(interval) => write_interval(writer, "", *interval),
+            Value::Array(array) => {
+                writer.write_all(b"{")?;
+                for (i, item) in array.iter().enumerate() {
+                    if i != 0 {
+                        writer.write_all(b",")?;
+                    }
+                    self.write_value(writer, &item)?;
+                }
+                writer.write_all(b"}")
+            }
+        }
+    }
+
+    fn write_file_header(&self, writer: &mut dyn Write, schema: &Schema<'_>) -> Result<(), Error> {
+        if !self.0.headers {
+            return Ok(());
+        }
+        for (i, col) in schema.column_names().enumerate() {
+            if i != 0 {
+                self.write_value_separator(writer)?;
+            }
+            writer.write_all(col.as_bytes())?;
+        }
+        self.write_row_separator(writer)
+    }
+
+    fn write_header(&self, _: &mut dyn Write, _: &Schema<'_>) -> Result<(), Error> {
+        Ok(())
+    }
+
+    fn write_value_separator(&self, writer: &mut dyn Write) -> Result<(), Error> {
+        writer.write_all(b"\t")
+    }
+
+    fn write_value_header(&self, _: &mut dyn Write, _: &str) -> Result<(), Error> {
+        Ok(())
+    }
+
+    fn write_row_separator(&self, writer: &mut dyn Write) -> Result<(), Error> {
+        writer.write_all(b"\n")
+    }
+
+    fn write_trailer(&self, writer: &mut dyn Write) -> Result<(), Error> {
+        writer.write_all(b"\n")
+    }
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;

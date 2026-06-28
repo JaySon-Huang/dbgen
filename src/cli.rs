@@ -3,7 +3,7 @@
 use crate::{
     error::Error,
     eval::{CompileContext, Schema, State, Table},
-    format::{CsvFormat, Format, Options, SqlFormat, SqlInsertSetFormat},
+    format::{CsvFormat, Format, Options, SqlFormat, SqlInsertSetFormat, TsvFormat},
     lexctr::LexCtr,
     parser::{QName, Template},
     span::{Registry, ResultExt, S, SpanExt},
@@ -698,6 +698,8 @@ pub enum FormatName {
     Sql,
     /// CSV
     Csv,
+    /// TSV (Tab-Separated Values)
+    Tsv,
     /// SQL in INSERT-SET form
     SqlInsertSet,
 }
@@ -708,6 +710,7 @@ impl FromStr for FormatName {
         Ok(match name {
             "sql" => Self::Sql,
             "csv" => Self::Csv,
+            "tsv" => Self::Tsv,
             "sql-insert-set" => Self::SqlInsertSet,
             _ => {
                 return Err(Error::UnsupportedCliParameter {
@@ -725,6 +728,7 @@ impl FormatName {
         match self {
             Self::Sql | Self::SqlInsertSet => "sql",
             Self::Csv => "csv",
+            Self::Tsv => "tsv",
         }
     }
 
@@ -733,6 +737,7 @@ impl FormatName {
         match self {
             Self::Sql => Box::new(SqlFormat(options)),
             Self::Csv => Box::new(CsvFormat(options)),
+            Self::Tsv => Box::new(TsvFormat(options)),
             Self::SqlInsertSet => Box::new(SqlInsertSetFormat(options)),
         }
     }
@@ -752,7 +757,7 @@ impl FormatName {
     fn default_null_string(self) -> Cow<'static, str> {
         Cow::Borrowed(match self {
             Self::Sql | Self::SqlInsertSet => "NULL",
-            Self::Csv => r"\N",
+            Self::Csv | Self::Tsv => r"\N",
         })
     }
 }
