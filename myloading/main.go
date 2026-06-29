@@ -34,7 +34,7 @@ func main() {
 	}
 	defer file.Close()
 
-	db, err := sql.Open("mysql", "root:@tcp(10.2.12.81:8020)/widecol")
+	db, err := sql.Open("mysql", "root:@tcp(10.2.12.81:8030)/widecol")
 	if err != nil {
 		fmt.Println("Error connecting to database:", err)
 		return

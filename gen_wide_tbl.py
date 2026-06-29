@@ -11,9 +11,9 @@ create table widecol.widecol_test(
     w_state     char(2),/*{{ rand.regex('[A-Z]{2}') }}*/
     w_zip       char(9),/*{{ rand.regex('[0-9]{4}11111') }}*/
 """)
-print('\n'.join(['    r_dec{:03d} decimal(14, 2), '.format(x) + '/*{{ CASE rand.bool(0.05) WHEN TRUE THEN rand.range_inclusive(0, 200000)/10000 ELSE NULL END }}*/' for x in range(0,10)]))
-print('\n'.join(['    r_int{:03d} integer, '.format(x) + '/*{{ CASE rand.bool(0.05) WHEN TRUE THEN rand.range(0, 10000000) ELSE NULL END }}*/' for x in range(0,100)]))
-print('\n'.join(["    r_str{:03d} varchar(30), ".format(x) + "/*{{ CASE rand.bool(0.05) WHEN TRUE THEN rand.regex('[0-9a-zA-Z]{6,10}') ELSE NULL END }}*/" for x in range(0,850)]))
+print('\n'.join(['    r_dec{:03d} decimal(14, 2), '.format(x) + '/*{{ CASE rand.bool(0.05) WHEN TRUE THEN rand.range_inclusive(0, 200000)/10000 ELSE NULL END }}*/' for x in range(0, 10)]))
+print('\n'.join(['    r_int{:03d} integer, '.format(x) + '/*{{ CASE rand.bool(0.05) WHEN TRUE THEN rand.range(0, 10000000) ELSE NULL END }}*/' for x in range(0, 80)]))
+print('\n'.join(["    r_str{:03d} varchar(30), ".format(x) + "/*{{ CASE rand.bool(0.05) WHEN TRUE THEN rand.regex('[0-9a-zA-Z]{6,10}') ELSE NULL END }}*/" for x in range(0, 400)]))
 print("""    primary key (w_id)
 );""")
 
