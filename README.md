@@ -12,6 +12,7 @@ expressions.
     * [Download and install](Download.md)
     * [Table generator `dbgen`](CLI.md)
     * [Schema generator `dbschemagen`](SchemaGen.md)
+    * [Object storage pipeline](ObjectStoragePipeline.md)（设计文档：TB 级数据生成与 OpenDAL 上传）
 
 * Reference
     * [Template reference](Template.md)
