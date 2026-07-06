@@ -7,3 +7,5 @@ playground.js
 *.tar.xz
 .vscode
 mock_data
+mock_data_csv
+mock_data_wide
