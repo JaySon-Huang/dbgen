@@ -94,3 +94,127 @@ shards, and the number of rows matching the benchmark predicate.
 Enable trim min-max writing before TiFlash creates stable DMFiles. To compare
 ordinary and trim min-max fairly, benchmark the same imported table while only
 toggling trim min-max reading. `benchmark-query.sql` contains the target query.
+
+For the imported `test.bc_bet_records_1m` sample, use the executable SQL suite:
+
+1. `tiflash-precheck.sql`: verify replica availability, dataset identity, and
+   that the target plan uses TiFlash MPP;
+2. `tiflash-correctness.sql`: compare exact counts/checksums with trim reads off
+   and on, including same-column inside/outside mixed predicates;
+3. `tiflash-benchmark.sql`: collect `EXPLAIN ANALYZE` for multiple time-window
+   selectivities, the outside-range fallback, and the production-shaped query.
+
+Example invocation:
+
+```sh
+mycli -h 10.2.12.79 -P 8020 -u root -D test --noninteractive \
+  --batch examples/tiflash-trim-minmax/tiflash-precheck.sql
+```
+
+The trim switches are TiFlash `[profiles.default]` settings rather than TiDB
+session variables. Use the same `dt_enable_trim_minmax_write=true` data files
+and change only `dt_enable_trim_minmax_read` between the primary A/B rounds.
+If trim writing was disabled while the replica/DMFiles were created, enabling
+trim reading alone cannot test the optimization; recreate or rewrite those
+DMFiles after enabling trim writing.
+
+## Switch trim min-max reading
+
+Both TiFlash instances run on `k81`. Their configuration and log files are:
+
+| Instance | Configuration | Log |
+| --- | --- | --- |
+| `10.2.12.81:9522` | `/data2/jaysonhuang/clusters/tiflash-5022/conf/tiflash.toml` | `/data2/jaysonhuang/clusters/tiflash-5022/log/tiflash.log` |
+| `10.2.12.81:9523` | `/data2/jaysonhuang/clusters/tiflash-5023/conf/tiflash.toml` | `/data2/jaysonhuang/clusters/tiflash-5023/log/tiflash.log` |
+
+Keep `dt_enable_trim_minmax_write=true` in both A/B rounds. Set trim reading to
+`false` for the ordinary min-max baseline:
+
+```sh
+ssh k81 "sed -i -E \
+  's/^(dt_enable_trim_minmax_read[[:space:]]*=[[:space:]]*)(true|false)$/\1false/' \
+  /data2/jaysonhuang/clusters/tiflash-5022/conf/tiflash.toml \
+  /data2/jaysonhuang/clusters/tiflash-5023/conf/tiflash.toml"
+```
+
+Set it to `true` for the trim min-max round:
+
+```sh
+ssh k81 "sed -i -E \
+  's/^(dt_enable_trim_minmax_read[[:space:]]*=[[:space:]]*)(true|false)$/\1true/' \
+  /data2/jaysonhuang/clusters/tiflash-5022/conf/tiflash.toml \
+  /data2/jaysonhuang/clusters/tiflash-5023/conf/tiflash.toml"
+```
+
+Verify the persisted values:
+
+```sh
+ssh k81 "rg -n \
+  '^[[:space:]]*dt_enable_trim_minmax_read[[:space:]]*=' \
+  /data2/jaysonhuang/clusters/tiflash-5022/conf/tiflash.toml \
+  /data2/jaysonhuang/clusters/tiflash-5023/conf/tiflash.toml"
+```
+
+TiFlash reloads these settings without a restart. Do not start a benchmark
+until both logs contain a new `reload delta tree` record with the requested
+value. For example, after enabling trim reads:
+
+```sh
+ssh k81 "rg -n \
+  'reload delta tree.*dt_enable_trim_minmax_read.*new: true' \
+  /data2/jaysonhuang/clusters/tiflash-5022/log/tiflash.log \
+  /data2/jaysonhuang/clusters/tiflash-5023/log/tiflash.log | tail -n 4"
+```
+
+Inspect the timestamps rather than accepting an older matching line. The two
+instances may reload a few seconds apart. Repeat the command with `new: false`
+when preparing the baseline round.
+
+## Correlate benchmark queries with TiFlash logs
+
+Each query in `tiflash-benchmark.sql` now follows this pattern:
+
+```sql
+BEGIN;
+SELECT 'P02_27h' AS query_name, @@tidb_current_ts AS query_tso;
+EXPLAIN ANALYZE SELECT ...;
+ROLLBACK;
+```
+
+One query per transaction gives every P01-P06 execution a distinct TSO. The
+printed `query_tso` is recorded as both `query_tso` and `start_ts` in
+`MPPTaskStatistics.cpp` logs.
+
+Capture the SQL output for one benchmark round:
+
+```sh
+mycli -h 10.2.12.79 -P 8020 -u root -D test \
+  --noninteractive --format tsv \
+  --batch examples/tiflash-trim-minmax/tiflash-benchmark.sql \
+  > benchmark-trim-on.tsv
+```
+
+For each printed TSO, collect the final task statistics from both TiFlash
+instances. Replace the example value below with the TSO for the query:
+
+```sh
+TSO=467698350143045633
+
+ssh k81 "rg 'MPPTaskStatistics\\.cpp' \
+  /data2/jaysonhuang/clusters/tiflash-5022/log/tiflash.log \
+  /data2/jaysonhuang/clusters/tiflash-5023/log/tiflash.log \
+  | rg '$TSO' \
+  | rg '\[INFO\]'"
+```
+
+The DEBUG record describes the `INITIALIZING` state. The INFO record contains
+the final `FINISHED` statistics, including executor row counts, DMFile scanned
+and skipped rows, late-materialization counters, rough-set pack-filter counts,
+read time, memory, and RU. A query can have tasks on both instances, so sum
+additive counters across all matching INFO records. Keep per-task elapsed time
+separate because the tasks execute in parallel.
+
+The current log payload exposes the rough-set expression and pack-filter
+counters, but does not contain an explicit `trim_minmax_used` field. It can
+demonstrate changes in pruning behavior, but cannot by itself prove which
+min-max representation was selected.

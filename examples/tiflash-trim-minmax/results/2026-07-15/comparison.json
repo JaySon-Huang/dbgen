@@ -1,0 +1,1539 @@
+[
+  {
+    "query": "P01_3h",
+    "tso_off": "467698739951173634",
+    "tso_on": "467698758694469633",
+    "root_time_ms": {
+      "off": 21.8,
+      "on": 17.3,
+      "pct": -20.6
+    },
+    "ru": {
+      "off": 161.01,
+      "on": 101.41,
+      "pct": -37
+    },
+    "table_scan_actual_rows": {
+      "off": 1389,
+      "on": 1389,
+      "pct": 0
+    },
+    "numeric": {
+      "rs_dmfile_read_with_all": {
+        "off": 0,
+        "on": 0,
+        "pct": null
+      },
+      "rs_pack_filter_all": {
+        "off": 0,
+        "on": 0,
+        "pct": null
+      },
+      "rs_pack_filter_all_null": {
+        "off": 0,
+        "on": 0,
+        "pct": null
+      },
+      "rs_pack_filter_none": {
+        "off": 149,
+        "on": 209,
+        "pct": 40.3
+      },
+      "rs_pack_filter_some": {
+        "off": 81,
+        "on": 21,
+        "pct": -74.1
+      },
+      "dmfile_lm_filter_scanned_rows": {
+        "off": 654490,
+        "on": 162970,
+        "pct": -75.1
+      },
+      "dmfile_lm_filter_skipped_rows": {
+        "off": 1220608,
+        "on": 1712128,
+        "pct": 40.3
+      },
+      "dmfile_data_scanned_rows": {
+        "off": 171162,
+        "on": 122010,
+        "pct": -28.7
+      },
+      "dmfile_data_skipped_rows": {
+        "off": 1703936,
+        "on": 1753088,
+        "pct": 2.9
+      },
+      "dmfile_mvcc_scanned_rows": {
+        "off": 40960,
+        "on": 73728,
+        "pct": 80
+      },
+      "dmfile_mvcc_skipped_rows": {
+        "off": 1834138,
+        "on": 1801370,
+        "pct": -1.8
+      },
+      "late_materialization_skip_rows": {
+        "off": 270336,
+        "on": 40960,
+        "pct": -84.8
+      },
+      "query_read_bytes": {
+        "off": 9811818,
+        "on": 5371050,
+        "pct": -45.3
+      },
+      "mvcc_read_bytes": {
+        "off": 696320,
+        "on": 1253376,
+        "pct": 80
+      },
+      "num_local_region": {
+        "off": 8,
+        "on": 8,
+        "pct": 0
+      },
+      "num_remote_region": {
+        "off": 0,
+        "on": 0,
+        "pct": null
+      },
+      "num_read_tasks": {
+        "off": 2,
+        "on": 2,
+        "pct": 0
+      },
+      "num_segments": {
+        "off": 2,
+        "on": 2,
+        "pct": 0
+      },
+      "num_stale_read": {
+        "off": 0,
+        "on": 0,
+        "pct": null
+      },
+      "delta_rows": {
+        "off": 0,
+        "on": 0,
+        "pct": null
+      },
+      "delta_bytes": {
+        "off": 0,
+        "on": 0,
+        "pct": null
+      },
+      "mvcc_input_rows": {
+        "off": 0,
+        "on": 0,
+        "pct": null
+      },
+      "mvcc_input_bytes": {
+        "off": 0,
+        "on": 0,
+        "pct": null
+      },
+      "mvcc_skip_rows": {
+        "off": 0,
+        "on": 0,
+        "pct": null
+      },
+      "rs_pack_total": {
+        "off": 230,
+        "on": 230
+      }
+    },
+    "time_ms_sum": {
+      "rs_pack_filter_check_time": {
+        "off": 0.533,
+        "on": 0.537,
+        "pct": 0.8
+      },
+      "dmfile_read_time": {
+        "off": 18.69,
+        "on": 13.576,
+        "pct": -27.4
+      },
+      "build_bitmap_time": {
+        "off": 5.439,
+        "on": 6.77,
+        "pct": 24.5
+      },
+      "build_stream_time": {
+        "off": 6.52,
+        "on": 7.71,
+        "pct": 18.3
+      },
+      "create_snapshot_time": {
+        "off": 0.033,
+        "on": 0.021,
+        "pct": -36.4
+      },
+      "learner_read_time": {
+        "off": 1.254,
+        "on": 1.157,
+        "pct": -7.7
+      },
+      "local_max_stream_cost_ms": {
+        "off": 31,
+        "on": 23,
+        "pct": -25.8
+      },
+      "local_min_stream_cost_ms": {
+        "off": 29,
+        "on": 22,
+        "pct": -24.1
+      },
+      "remote_max_stream_cost_ms": {
+        "off": 0,
+        "on": 0,
+        "pct": null
+      },
+      "remote_min_stream_cost_ms": {
+        "off": 0,
+        "on": 0,
+        "pct": null
+      }
+    },
+    "pushdown_off": {
+      "rs_operator": {
+        "children": [
+          {
+            "col": "category_id",
+            "op": "equal",
+            "value": "5"
+          },
+          {
+            "col": "settle_status",
+            "op": "equal",
+            "value": "2"
+          },
+          {
+            "op": "unsupported",
+            "reason": "ColumnRef with field type is not supported, sig=EQString field_type=15"
+          },
+          {
+            "op": "unsupported",
+            "reason": "ColumnRef with field type is not supported, sig=EQString field_type=15"
+          },
+          {
+            "col": "settle_time",
+            "op": "greater_equal",
+            "value": "1853898993818402816"
+          },
+          {
+            "col": "settle_time",
+            "op": "less_equal",
+            "value": "1853899195597979648"
+          }
+        ],
+        "op": "and"
+      }
+    },
+    "pushdown_on": {
+      "rs_operator": {
+        "children": [
+          {
+            "col": "category_id",
+            "op": "equal",
+            "value": "5"
+          },
+          {
+            "col": "settle_status",
+            "op": "equal",
+            "value": "2"
+          },
+          {
+            "op": "unsupported",
+            "reason": "ColumnRef with field type is not supported, sig=EQString field_type=15"
+          },
+          {
+            "op": "unsupported",
+            "reason": "ColumnRef with field type is not supported, sig=EQString field_type=15"
+          },
+          {
+            "class": "EqualityOrInOrBounded",
+            "col": "settle_time",
+            "lower": "1853898993818402816",
+            "op": "date_range",
+            "upper": "1853899195597979648"
+          }
+        ],
+        "op": "and"
+      }
+    }
+  },
+  {
+    "query": "P02_27h",
+    "tso_off": "467698740016709639",
+    "tso_on": "467698758760005633",
+    "root_time_ms": {
+      "off": 21.2,
+      "on": 15.6,
+      "pct": -26.4
+    },
+    "ru": {
+      "off": 177.46,
+      "on": 104.28,
+      "pct": -41.2
+    },
+    "table_scan_actual_rows": {
+      "off": 12500,
+      "on": 12500,
+      "pct": 0
+    },
+    "numeric": {
+      "rs_dmfile_read_with_all": {
+        "off": 0,
+        "on": 0,
+        "pct": null
+      },
+      "rs_pack_filter_all": {
+        "off": 0,
+        "on": 0,
+        "pct": null
+      },
+      "rs_pack_filter_all_null": {
+        "off": 0,
+        "on": 0,
+        "pct": null
+      },
+      "rs_pack_filter_none": {
+        "off": 145,
+        "on": 209,
+        "pct": 44.1
+      },
+      "rs_pack_filter_some": {
+        "off": 85,
+        "on": 21,
+        "pct": -75.3
+      },
+      "dmfile_lm_filter_scanned_rows": {
+        "off": 687258,
+        "on": 164416,
+        "pct": -76.1
+      },
+      "dmfile_lm_filter_skipped_rows": {
+        "off": 1187840,
+        "on": 1710682,
+        "pct": 44
+      },
+      "dmfile_data_scanned_rows": {
+        "off": 179354,
+        "on": 139840,
+        "pct": -22
+      },
+      "dmfile_data_skipped_rows": {
+        "off": 1695744,
+        "on": 1490944,
+        "pct": -12.1
+      },
+      "dmfile_mvcc_scanned_rows": {
+        "off": 73728,
+        "on": 49152,
+        "pct": -33.3
+      },
+      "dmfile_mvcc_skipped_rows": {
+        "off": 1801370,
+        "on": 1825946,
+        "pct": 1.4
+      },
+      "late_materialization_skip_rows": {
+        "off": 278528,
+        "on": 24576,
+        "pct": -91.2
+      },
+      "query_read_bytes": {
+        "off": 10245770,
+        "on": 5954624,
+        "pct": -41.9
+      },
+      "mvcc_read_bytes": {
+        "off": 1253376,
+        "on": 835584,
+        "pct": -33.3
+      },
+      "num_local_region": {
+        "off": 8,
+        "on": 8,
+        "pct": 0
+      },
+      "num_remote_region": {
+        "off": 0,
+        "on": 0,
+        "pct": null
+      },
+      "num_read_tasks": {
+        "off": 2,
+        "on": 2,
+        "pct": 0
+      },
+      "num_segments": {
+        "off": 2,
+        "on": 2,
+        "pct": 0
+      },
+      "num_stale_read": {
+        "off": 0,
+        "on": 0,
+        "pct": null
+      },
+      "delta_rows": {
+        "off": 0,
+        "on": 0,
+        "pct": null
+      },
+      "delta_bytes": {
+        "off": 0,
+        "on": 0,
+        "pct": null
+      },
+      "mvcc_input_rows": {
+        "off": 0,
+        "on": 0,
+        "pct": null
+      },
+      "mvcc_input_bytes": {
+        "off": 0,
+        "on": 0,
+        "pct": null
+      },
+      "mvcc_skip_rows": {
+        "off": 0,
+        "on": 0,
+        "pct": null
+      },
+      "rs_pack_total": {
+        "off": 230,
+        "on": 230
+      }
+    },
+    "time_ms_sum": {
+      "rs_pack_filter_check_time": {
+        "off": 0.635,
+        "on": 0.474,
+        "pct": -25.4
+      },
+      "dmfile_read_time": {
+        "off": 20.802,
+        "on": 13.257,
+        "pct": -36.3
+      },
+      "build_bitmap_time": {
+        "off": 7.293,
+        "on": 5.096,
+        "pct": -30.1
+      },
+      "build_stream_time": {
+        "off": 8.511,
+        "on": 5.969,
+        "pct": -29.9
+      },
+      "create_snapshot_time": {
+        "off": 0.02,
+        "on": 0.021,
+        "pct": 5
+      },
+      "learner_read_time": {
+        "off": 1.196,
+        "on": 1.132,
+        "pct": -5.4
+      },
+      "local_max_stream_cost_ms": {
+        "off": 34,
+        "on": 22,
+        "pct": -35.3
+      },
+      "local_min_stream_cost_ms": {
+        "off": 30,
+        "on": 21,
+        "pct": -30
+      },
+      "remote_max_stream_cost_ms": {
+        "off": 0,
+        "on": 0,
+        "pct": null
+      },
+      "remote_min_stream_cost_ms": {
+        "off": 0,
+        "on": 0,
+        "pct": null
+      }
+    },
+    "pushdown_off": {
+      "rs_operator": {
+        "children": [
+          {
+            "col": "category_id",
+            "op": "equal",
+            "value": "5"
+          },
+          {
+            "col": "settle_status",
+            "op": "equal",
+            "value": "2"
+          },
+          {
+            "op": "unsupported",
+            "reason": "ColumnRef with field type is not supported, sig=EQString field_type=15"
+          },
+          {
+            "op": "unsupported",
+            "reason": "ColumnRef with field type is not supported, sig=EQString field_type=15"
+          },
+          {
+            "col": "settle_time",
+            "op": "greater_equal",
+            "value": "1853896794795147264"
+          },
+          {
+            "col": "settle_time",
+            "op": "less_equal",
+            "value": "1853899195597979648"
+          }
+        ],
+        "op": "and"
+      }
+    },
+    "pushdown_on": {
+      "rs_operator": {
+        "children": [
+          {
+            "col": "category_id",
+            "op": "equal",
+            "value": "5"
+          },
+          {
+            "col": "settle_status",
+            "op": "equal",
+            "value": "2"
+          },
+          {
+            "op": "unsupported",
+            "reason": "ColumnRef with field type is not supported, sig=EQString field_type=15"
+          },
+          {
+            "op": "unsupported",
+            "reason": "ColumnRef with field type is not supported, sig=EQString field_type=15"
+          },
+          {
+            "class": "EqualityOrInOrBounded",
+            "col": "settle_time",
+            "lower": "1853896794795147264",
+            "op": "date_range",
+            "upper": "1853899195597979648"
+          }
+        ],
+        "op": "and"
+      }
+    }
+  },
+  {
+    "query": "P03_3d",
+    "tso_off": "467698740082245633",
+    "tso_on": "467698758812434433",
+    "root_time_ms": {
+      "off": 22.2,
+      "on": 21,
+      "pct": -5.4
+    },
+    "ru": {
+      "off": 190.42,
+      "on": 134.43,
+      "pct": -29.4
+    },
+    "table_scan_actual_rows": {
+      "off": 33333,
+      "on": 33333,
+      "pct": 0
+    },
+    "numeric": {
+      "rs_dmfile_read_with_all": {
+        "off": 0,
+        "on": 0,
+        "pct": null
+      },
+      "rs_pack_filter_all": {
+        "off": 0,
+        "on": 0,
+        "pct": null
+      },
+      "rs_pack_filter_all_null": {
+        "off": 0,
+        "on": 0,
+        "pct": null
+      },
+      "rs_pack_filter_none": {
+        "off": 160,
+        "on": 220,
+        "pct": 37.5
+      },
+      "rs_pack_filter_some": {
+        "off": 86,
+        "on": 26,
+        "pct": -69.8
+      },
+      "dmfile_lm_filter_scanned_rows": {
+        "off": 698342,
+        "on": 206822,
+        "pct": -70.4
+      },
+      "dmfile_lm_filter_skipped_rows": {
+        "off": 1301658,
+        "on": 1793178,
+        "pct": 37.8
+      },
+      "dmfile_data_scanned_rows": {
+        "off": 215014,
+        "on": 165862,
+        "pct": -22.9
+      },
+      "dmfile_data_skipped_rows": {
+        "off": 1540096,
+        "on": 1589248,
+        "pct": 3.2
+      },
+      "dmfile_mvcc_scanned_rows": {
+        "off": 73728,
+        "on": 90112,
+        "pct": 22.2
+      },
+      "dmfile_mvcc_skipped_rows": {
+        "off": 1801370,
+        "on": 1784986,
+        "pct": -0.9
+      },
+      "late_materialization_skip_rows": {
+        "off": 245760,
+        "on": 40960,
+        "pct": -83.3
+      },
+      "query_read_bytes": {
+        "off": 11007478,
+        "on": 7168982,
+        "pct": -34.9
+      },
+      "mvcc_read_bytes": {
+        "off": 1253376,
+        "on": 1531904,
+        "pct": 22.2
+      },
+      "num_local_region": {
+        "off": 8,
+        "on": 8,
+        "pct": 0
+      },
+      "num_remote_region": {
+        "off": 0,
+        "on": 0,
+        "pct": null
+      },
+      "num_read_tasks": {
+        "off": 3,
+        "on": 3,
+        "pct": 0
+      },
+      "num_segments": {
+        "off": 3,
+        "on": 3,
+        "pct": 0
+      },
+      "num_stale_read": {
+        "off": 0,
+        "on": 0,
+        "pct": null
+      },
+      "delta_rows": {
+        "off": 0,
+        "on": 0,
+        "pct": null
+      },
+      "delta_bytes": {
+        "off": 0,
+        "on": 0,
+        "pct": null
+      },
+      "mvcc_input_rows": {
+        "off": 0,
+        "on": 0,
+        "pct": null
+      },
+      "mvcc_input_bytes": {
+        "off": 0,
+        "on": 0,
+        "pct": null
+      },
+      "mvcc_skip_rows": {
+        "off": 0,
+        "on": 0,
+        "pct": null
+      },
+      "rs_pack_total": {
+        "off": 246,
+        "on": 246
+      }
+    },
+    "time_ms_sum": {
+      "rs_pack_filter_check_time": {
+        "off": 0.641,
+        "on": 0.744,
+        "pct": 16.1
+      },
+      "dmfile_read_time": {
+        "off": 23.493,
+        "on": 18.412,
+        "pct": -21.6
+      },
+      "build_bitmap_time": {
+        "off": 7.321,
+        "on": 7.969,
+        "pct": 8.9
+      },
+      "build_stream_time": {
+        "off": 8.775,
+        "on": 9.477,
+        "pct": 8
+      },
+      "create_snapshot_time": {
+        "off": 0.022,
+        "on": 0.024,
+        "pct": 9.1
+      },
+      "learner_read_time": {
+        "off": 1.22,
+        "on": 1.117,
+        "pct": -8.4
+      },
+      "local_max_stream_cost_ms": {
+        "off": 31,
+        "on": 27,
+        "pct": -12.9
+      },
+      "local_min_stream_cost_ms": {
+        "off": 29,
+        "on": 25,
+        "pct": -13.8
+      },
+      "remote_max_stream_cost_ms": {
+        "off": 0,
+        "on": 0,
+        "pct": null
+      },
+      "remote_min_stream_cost_ms": {
+        "off": 0,
+        "on": 0,
+        "pct": null
+      }
+    },
+    "pushdown_off": {
+      "rs_operator": {
+        "children": [
+          {
+            "col": "category_id",
+            "op": "equal",
+            "value": "5"
+          },
+          {
+            "col": "settle_status",
+            "op": "equal",
+            "value": "2"
+          },
+          {
+            "op": "unsupported",
+            "reason": "ColumnRef with field type is not supported, sig=EQString field_type=15"
+          },
+          {
+            "op": "unsupported",
+            "reason": "ColumnRef with field type is not supported, sig=EQString field_type=15"
+          },
+          {
+            "col": "settle_time",
+            "op": "greater_equal",
+            "value": "1853893152662880256"
+          },
+          {
+            "col": "settle_time",
+            "op": "less_equal",
+            "value": "1853899195597979648"
+          }
+        ],
+        "op": "and"
+      }
+    },
+    "pushdown_on": {
+      "rs_operator": {
+        "children": [
+          {
+            "col": "category_id",
+            "op": "equal",
+            "value": "5"
+          },
+          {
+            "col": "settle_status",
+            "op": "equal",
+            "value": "2"
+          },
+          {
+            "op": "unsupported",
+            "reason": "ColumnRef with field type is not supported, sig=EQString field_type=15"
+          },
+          {
+            "op": "unsupported",
+            "reason": "ColumnRef with field type is not supported, sig=EQString field_type=15"
+          },
+          {
+            "class": "EqualityOrInOrBounded",
+            "col": "settle_time",
+            "lower": "1853893152662880256",
+            "op": "date_range",
+            "upper": "1853899195597979648"
+          }
+        ],
+        "op": "and"
+      }
+    }
+  },
+  {
+    "query": "P04_30d",
+    "tso_off": "467698740134674433",
+    "tso_on": "467698758864863233",
+    "root_time_ms": {
+      "off": 34.6,
+      "on": 25.2,
+      "pct": -27.2
+    },
+    "ru": {
+      "off": 241.42,
+      "on": 112.62,
+      "pct": -53.4
+    },
+    "table_scan_actual_rows": {
+      "off": 198788,
+      "on": 114852,
+      "pct": -42.2
+    },
+    "numeric": {
+      "rs_dmfile_read_with_all": {
+        "off": 0,
+        "on": 0,
+        "pct": null
+      },
+      "rs_pack_filter_all": {
+        "off": 0,
+        "on": 0,
+        "pct": null
+      },
+      "rs_pack_filter_all_null": {
+        "off": 0,
+        "on": 0,
+        "pct": null
+      },
+      "rs_pack_filter_none": {
+        "off": 143,
+        "on": 171,
+        "pct": 19.6
+      },
+      "rs_pack_filter_some": {
+        "off": 103,
+        "on": 59,
+        "pct": -42.7
+      },
+      "dmfile_lm_filter_scanned_rows": {
+        "off": 836160,
+        "on": 475712,
+        "pct": -43.1
+      },
+      "dmfile_lm_filter_skipped_rows": {
+        "off": 1163840,
+        "on": 1399386,
+        "pct": 20.2
+      },
+      "dmfile_data_scanned_rows": {
+        "off": 836160,
+        "on": 475712,
+        "pct": -43.1
+      },
+      "dmfile_data_skipped_rows": {
+        "off": 917504,
+        "on": 1155072,
+        "pct": 25.9
+      },
+      "dmfile_mvcc_scanned_rows": {
+        "off": 81920,
+        "on": 32768,
+        "pct": -60
+      },
+      "dmfile_mvcc_skipped_rows": {
+        "off": 1793178,
+        "on": 1842330,
+        "pct": 2.7
+      },
+      "late_materialization_skip_rows": {
+        "off": 0,
+        "on": 0,
+        "pct": null
+      },
+      "query_read_bytes": {
+        "off": 14254312,
+        "on": 6649097,
+        "pct": -53.4
+      },
+      "mvcc_read_bytes": {
+        "off": 1392640,
+        "on": 557056,
+        "pct": -60
+      },
+      "num_local_region": {
+        "off": 8,
+        "on": 8,
+        "pct": 0
+      },
+      "num_remote_region": {
+        "off": 0,
+        "on": 0,
+        "pct": null
+      },
+      "num_read_tasks": {
+        "off": 3,
+        "on": 2,
+        "pct": -33.3
+      },
+      "num_segments": {
+        "off": 3,
+        "on": 2,
+        "pct": -33.3
+      },
+      "num_stale_read": {
+        "off": 0,
+        "on": 0,
+        "pct": null
+      },
+      "delta_rows": {
+        "off": 0,
+        "on": 0,
+        "pct": null
+      },
+      "delta_bytes": {
+        "off": 0,
+        "on": 0,
+        "pct": null
+      },
+      "mvcc_input_rows": {
+        "off": 0,
+        "on": 0,
+        "pct": null
+      },
+      "mvcc_input_bytes": {
+        "off": 0,
+        "on": 0,
+        "pct": null
+      },
+      "mvcc_skip_rows": {
+        "off": 0,
+        "on": 0,
+        "pct": null
+      },
+      "rs_pack_total": {
+        "off": 246,
+        "on": 230
+      }
+    },
+    "time_ms_sum": {
+      "rs_pack_filter_check_time": {
+        "off": 0.675,
+        "on": 0.47,
+        "pct": -30.4
+      },
+      "dmfile_read_time": {
+        "off": 40.889,
+        "on": 24.888,
+        "pct": -39.1
+      },
+      "build_bitmap_time": {
+        "off": 7.619,
+        "on": 4.998,
+        "pct": -34.4
+      },
+      "build_stream_time": {
+        "off": 9.04,
+        "on": 5.957,
+        "pct": -34.1
+      },
+      "create_snapshot_time": {
+        "off": 0.023,
+        "on": 0.024,
+        "pct": 4.3
+      },
+      "learner_read_time": {
+        "off": 1.213,
+        "on": 1.194,
+        "pct": -1.6
+      },
+      "local_max_stream_cost_ms": {
+        "off": 54,
+        "on": 39,
+        "pct": -27.8
+      },
+      "local_min_stream_cost_ms": {
+        "off": 52,
+        "on": 35,
+        "pct": -32.7
+      },
+      "remote_max_stream_cost_ms": {
+        "off": 0,
+        "on": 0,
+        "pct": null
+      },
+      "remote_min_stream_cost_ms": {
+        "off": 0,
+        "on": 0,
+        "pct": null
+      }
+    },
+    "pushdown_off": {
+      "rs_operator": {
+        "children": [
+          {
+            "col": "settle_status",
+            "op": "equal",
+            "value": "2"
+          },
+          {
+            "col": "settle_time",
+            "op": "greater_equal",
+            "value": "1853829380988469248"
+          },
+          {
+            "col": "settle_time",
+            "op": "less_equal",
+            "value": "1853899195597979648"
+          },
+          {
+            "op": "unsupported",
+            "reason": "ColumnRef with field type is not supported, sig=EQString field_type=15"
+          },
+          {
+            "op": "unsupported",
+            "reason": "ColumnRef with field type is not supported, sig=EQString field_type=15"
+          },
+          {
+            "col": "category_id",
+            "op": "equal",
+            "value": "5"
+          }
+        ],
+        "op": "and"
+      }
+    },
+    "pushdown_on": {
+      "rs_operator": {
+        "children": [
+          {
+            "col": "settle_status",
+            "op": "equal",
+            "value": "2"
+          },
+          {
+            "op": "unsupported",
+            "reason": "ColumnRef with field type is not supported, sig=EQString field_type=15"
+          },
+          {
+            "op": "unsupported",
+            "reason": "ColumnRef with field type is not supported, sig=EQString field_type=15"
+          },
+          {
+            "col": "category_id",
+            "op": "equal",
+            "value": "5"
+          },
+          {
+            "class": "EqualityOrInOrBounded",
+            "col": "settle_time",
+            "lower": "1853829380988469248",
+            "op": "date_range",
+            "upper": "1853899195597979648"
+          }
+        ],
+        "op": "and"
+      }
+    }
+  },
+  {
+    "query": "P05_outside",
+    "tso_off": "467698740252639234",
+    "tso_on": "467698758930399233",
+    "root_time_ms": {
+      "off": 10.8,
+      "on": 13.3,
+      "pct": 23.1
+    },
+    "ru": {
+      "off": 80.75,
+      "on": 84.12,
+      "pct": 4.2
+    },
+    "table_scan_actual_rows": {
+      "off": 573440,
+      "on": 588378,
+      "pct": 2.6
+    },
+    "numeric": {
+      "rs_dmfile_read_with_all": {
+        "off": 0,
+        "on": 0,
+        "pct": null
+      },
+      "rs_pack_filter_all": {
+        "off": 0,
+        "on": 0,
+        "pct": null
+      },
+      "rs_pack_filter_all_null": {
+        "off": 0,
+        "on": 0,
+        "pct": null
+      },
+      "rs_pack_filter_none": {
+        "off": 160,
+        "on": 174,
+        "pct": 8.8
+      },
+      "rs_pack_filter_some": {
+        "off": 70,
+        "on": 72,
+        "pct": 2.9
+      },
+      "dmfile_lm_filter_scanned_rows": {
+        "off": 0,
+        "on": 0,
+        "pct": null
+      },
+      "dmfile_lm_filter_skipped_rows": {
+        "off": 0,
+        "on": 0,
+        "pct": null
+      },
+      "dmfile_data_scanned_rows": {
+        "off": 573440,
+        "on": 589824,
+        "pct": 2.9
+      },
+      "dmfile_data_skipped_rows": {
+        "off": 1301658,
+        "on": 1410176,
+        "pct": 8.3
+      },
+      "dmfile_mvcc_scanned_rows": {
+        "off": 0,
+        "on": 8192,
+        "pct": null
+      },
+      "dmfile_mvcc_skipped_rows": {
+        "off": 0,
+        "on": 991808,
+        "pct": null
+      },
+      "late_materialization_skip_rows": {
+        "off": 0,
+        "on": 0,
+        "pct": null
+      },
+      "query_read_bytes": {
+        "off": 5160960,
+        "on": 5308416,
+        "pct": 2.9
+      },
+      "mvcc_read_bytes": {
+        "off": 0,
+        "on": 139264,
+        "pct": null
+      },
+      "num_local_region": {
+        "off": 8,
+        "on": 8,
+        "pct": 0
+      },
+      "num_remote_region": {
+        "off": 0,
+        "on": 0,
+        "pct": null
+      },
+      "num_read_tasks": {
+        "off": 2,
+        "on": 3,
+        "pct": 50
+      },
+      "num_segments": {
+        "off": 2,
+        "on": 3,
+        "pct": 50
+      },
+      "num_stale_read": {
+        "off": 0,
+        "on": 0,
+        "pct": null
+      },
+      "delta_rows": {
+        "off": 0,
+        "on": 0,
+        "pct": null
+      },
+      "delta_bytes": {
+        "off": 0,
+        "on": 0,
+        "pct": null
+      },
+      "mvcc_input_rows": {
+        "off": 0,
+        "on": 0,
+        "pct": null
+      },
+      "mvcc_input_bytes": {
+        "off": 0,
+        "on": 0,
+        "pct": null
+      },
+      "mvcc_skip_rows": {
+        "off": 0,
+        "on": 0,
+        "pct": null
+      },
+      "rs_pack_total": {
+        "off": 230,
+        "on": 246
+      }
+    },
+    "time_ms_sum": {
+      "rs_pack_filter_check_time": {
+        "off": 0.187,
+        "on": 0.297,
+        "pct": 58.8
+      },
+      "dmfile_read_time": {
+        "off": 8.549,
+        "on": 10.168,
+        "pct": 18.9
+      },
+      "build_bitmap_time": {
+        "off": 1.038,
+        "on": 2.559,
+        "pct": 146.5
+      },
+      "build_stream_time": {
+        "off": 1.624,
+        "on": 3.358,
+        "pct": 106.8
+      },
+      "create_snapshot_time": {
+        "off": 0.022,
+        "on": 0.025,
+        "pct": 13.6
+      },
+      "learner_read_time": {
+        "off": 1.117,
+        "on": 1.168,
+        "pct": 4.6
+      },
+      "local_max_stream_cost_ms": {
+        "off": 13,
+        "on": 16,
+        "pct": 23.1
+      },
+      "local_min_stream_cost_ms": {
+        "off": 11,
+        "on": 13,
+        "pct": 18.2
+      },
+      "remote_max_stream_cost_ms": {
+        "off": 0,
+        "on": 0,
+        "pct": null
+      },
+      "remote_min_stream_cost_ms": {
+        "off": 0,
+        "on": 0,
+        "pct": null
+      }
+    },
+    "pushdown_off": {
+      "rs_operator": {
+        "col": "settle_time",
+        "op": "equal",
+        "value": "1921139283817660416"
+      }
+    },
+    "pushdown_on": {
+      "rs_operator": {
+        "col": "settle_time",
+        "op": "equal",
+        "value": "1921139283817660416"
+      }
+    }
+  },
+  {
+    "query": "P06_production",
+    "tso_off": "467698740318437377",
+    "tso_on": "467698758983090178",
+    "root_time_ms": {
+      "off": 94.9,
+      "on": 85.8,
+      "pct": -9.6
+    },
+    "ru": {
+      "off": 868.46,
+      "on": 759.8,
+      "pct": -12.5
+    },
+    "table_scan_actual_rows": {
+      "off": 12500,
+      "on": 12500,
+      "pct": 0
+    },
+    "numeric": {
+      "rs_dmfile_read_with_all": {
+        "off": 0,
+        "on": 0,
+        "pct": null
+      },
+      "rs_pack_filter_all": {
+        "off": 0,
+        "on": 0,
+        "pct": null
+      },
+      "rs_pack_filter_all_null": {
+        "off": 0,
+        "on": 0,
+        "pct": null
+      },
+      "rs_pack_filter_none": {
+        "off": 147,
+        "on": 227,
+        "pct": 54.4
+      },
+      "rs_pack_filter_some": {
+        "off": 83,
+        "on": 19,
+        "pct": -77.1
+      },
+      "dmfile_lm_filter_scanned_rows": {
+        "off": 672320,
+        "on": 148032,
+        "pct": -78
+      },
+      "dmfile_lm_filter_skipped_rows": {
+        "off": 1202778,
+        "on": 1851968,
+        "pct": 54
+      },
+      "dmfile_data_scanned_rows": {
+        "off": 188992,
+        "on": 131648,
+        "pct": -30.3
+      },
+      "dmfile_data_skipped_rows": {
+        "off": 1441792,
+        "on": 1622016,
+        "pct": 12.5
+      },
+      "dmfile_mvcc_scanned_rows": {
+        "off": 49152,
+        "on": 32768,
+        "pct": -33.3
+      },
+      "dmfile_mvcc_skipped_rows": {
+        "off": 1825946,
+        "on": 1842330,
+        "pct": 0.9
+      },
+      "late_materialization_skip_rows": {
+        "off": 286720,
+        "on": 16384,
+        "pct": -94.3
+      },
+      "query_read_bytes": {
+        "off": 55599267,
+        "on": 49018429,
+        "pct": -11.8
+      },
+      "mvcc_read_bytes": {
+        "off": 835584,
+        "on": 557056,
+        "pct": -33.3
+      },
+      "num_local_region": {
+        "off": 8,
+        "on": 8,
+        "pct": 0
+      },
+      "num_remote_region": {
+        "off": 0,
+        "on": 0,
+        "pct": null
+      },
+      "num_read_tasks": {
+        "off": 2,
+        "on": 3,
+        "pct": 50
+      },
+      "num_segments": {
+        "off": 2,
+        "on": 3,
+        "pct": 50
+      },
+      "num_stale_read": {
+        "off": 0,
+        "on": 0,
+        "pct": null
+      },
+      "delta_rows": {
+        "off": 0,
+        "on": 0,
+        "pct": null
+      },
+      "delta_bytes": {
+        "off": 0,
+        "on": 0,
+        "pct": null
+      },
+      "mvcc_input_rows": {
+        "off": 0,
+        "on": 0,
+        "pct": null
+      },
+      "mvcc_input_bytes": {
+        "off": 0,
+        "on": 0,
+        "pct": null
+      },
+      "mvcc_skip_rows": {
+        "off": 0,
+        "on": 0,
+        "pct": null
+      },
+      "rs_pack_total": {
+        "off": 230,
+        "on": 246
+      }
+    },
+    "time_ms_sum": {
+      "rs_pack_filter_check_time": {
+        "off": 0.488,
+        "on": 0.724,
+        "pct": 48.4
+      },
+      "dmfile_read_time": {
+        "off": 139.59,
+        "on": 139.105,
+        "pct": -0.3
+      },
+      "build_bitmap_time": {
+        "off": 5.695,
+        "on": 5.774,
+        "pct": 1.4
+      },
+      "build_stream_time": {
+        "off": 7.355,
+        "on": 8.823,
+        "pct": 20
+      },
+      "create_snapshot_time": {
+        "off": 0.021,
+        "on": 0.024,
+        "pct": 14.3
+      },
+      "learner_read_time": {
+        "off": 1.051,
+        "on": 1.131,
+        "pct": 7.6
+      },
+      "local_max_stream_cost_ms": {
+        "off": 157,
+        "on": 132,
+        "pct": -15.9
+      },
+      "local_min_stream_cost_ms": {
+        "off": 155,
+        "on": 128,
+        "pct": -17.4
+      },
+      "remote_max_stream_cost_ms": {
+        "off": 0,
+        "on": 0,
+        "pct": null
+      },
+      "remote_min_stream_cost_ms": {
+        "off": 0,
+        "on": 0,
+        "pct": null
+      }
+    },
+    "pushdown_off": {
+      "rs_operator": {
+        "children": [
+          {
+            "col": "category_id",
+            "op": "equal",
+            "value": "5"
+          },
+          {
+            "col": "settle_status",
+            "op": "equal",
+            "value": "2"
+          },
+          {
+            "op": "unsupported",
+            "reason": "ColumnRef with field type is not supported, sig=EQString field_type=15"
+          },
+          {
+            "op": "unsupported",
+            "reason": "ColumnRef with field type is not supported, sig=EQString field_type=15"
+          },
+          {
+            "col": "settle_time",
+            "op": "greater_equal",
+            "value": "1853896794795147264"
+          },
+          {
+            "col": "settle_time",
+            "op": "less_equal",
+            "value": "1853899195597979648"
+          }
+        ],
+        "op": "and"
+      }
+    },
+    "pushdown_on": {
+      "rs_operator": {
+        "children": [
+          {
+            "col": "category_id",
+            "op": "equal",
+            "value": "5"
+          },
+          {
+            "col": "settle_status",
+            "op": "equal",
+            "value": "2"
+          },
+          {
+            "op": "unsupported",
+            "reason": "ColumnRef with field type is not supported, sig=EQString field_type=15"
+          },
+          {
+            "op": "unsupported",
+            "reason": "ColumnRef with field type is not supported, sig=EQString field_type=15"
+          },
+          {
+            "class": "EqualityOrInOrBounded",
+            "col": "settle_time",
+            "lower": "1853896794795147264",
+            "op": "date_range",
+            "upper": "1853899195597979648"
+          }
+        ],
+        "op": "and"
+      }
+    }
+  }
+]

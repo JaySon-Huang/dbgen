@@ -1,0 +1,1608 @@
+{
+  "mode": "trim_read_true",
+  "measured_at_utc": "2026-07-15T15:26:21.940Z",
+  "config_reload": {
+    "tiflash_5022": "2026-07-15 23:25:33.027 +08:00",
+    "tiflash_5023": "2026-07-15 23:25:34.191 +08:00"
+  },
+  "queries": [
+    {
+      "query": "P01_3h",
+      "tso": "467698758694469633",
+      "root_time": "17.3ms",
+      "ru": 101.41,
+      "table_scan_actual_rows": 1389,
+      "task_count": 2,
+      "tasks": [
+        {
+          "task_id": 1,
+          "host": "10.2.12.81:9522",
+          "status": "FINISHED",
+          "scan_details": {
+            "build_bitmap_time": "3.242ms",
+            "build_stream_time": "3.746ms",
+            "create_snapshot_time": "0.010ms",
+            "delta_bytes": 0,
+            "delta_rows": 0,
+            "dmfile_data_scanned_rows": 64090,
+            "dmfile_data_skipped_rows": 811008,
+            "dmfile_lm_filter_scanned_rows": 80474,
+            "dmfile_lm_filter_skipped_rows": 794624,
+            "dmfile_mvcc_scanned_rows": 32768,
+            "dmfile_mvcc_skipped_rows": 842330,
+            "dmfile_read_time": "6.435ms",
+            "late_materialization_skip_rows": 16384,
+            "learner_read_time": "0.561ms",
+            "local_max_stream_cost_ms": "11.000ms",
+            "local_min_stream_cost_ms": "10.000ms",
+            "mvcc_input_bytes": 0,
+            "mvcc_input_rows": 0,
+            "mvcc_read_bytes": 557056,
+            "mvcc_skip_rows": 0,
+            "num_columns": 5,
+            "num_local_region": 4,
+            "num_read_tasks": 1,
+            "num_remote_region": 0,
+            "num_segments": 1,
+            "num_stale_read": 0,
+            "pushdown": {
+              "rs_operator": {
+                "children": [
+                  {
+                    "col": "category_id",
+                    "op": "equal",
+                    "value": "5"
+                  },
+                  {
+                    "col": "settle_status",
+                    "op": "equal",
+                    "value": "2"
+                  },
+                  {
+                    "op": "unsupported",
+                    "reason": "ColumnRef with field type is not supported, sig=EQString field_type=15"
+                  },
+                  {
+                    "op": "unsupported",
+                    "reason": "ColumnRef with field type is not supported, sig=EQString field_type=15"
+                  },
+                  {
+                    "class": "EqualityOrInOrBounded",
+                    "col": "settle_time",
+                    "lower": "1853898993818402816",
+                    "op": "date_range",
+                    "upper": "1853899195597979648"
+                  }
+                ],
+                "op": "and"
+              }
+            },
+            "query_read_bytes": 2775146,
+            "read_mode": "Bitmap",
+            "region_num_of_instance": [
+              {
+                "instance_id": "10.2.12.81:9522",
+                "region_num": 4
+              }
+            ],
+            "remote_max_stream_cost_ms": "0.000ms",
+            "remote_min_stream_cost_ms": "0.000ms",
+            "rs_dmfile_read_with_all": 0,
+            "rs_pack_filter_all": 0,
+            "rs_pack_filter_all_null": 0,
+            "rs_pack_filter_check_time": "0.272ms",
+            "rs_pack_filter_none": 97,
+            "rs_pack_filter_some": 10
+          }
+        },
+        {
+          "task_id": 2,
+          "host": "10.2.12.81:9523",
+          "status": "FINISHED",
+          "scan_details": {
+            "build_bitmap_time": "3.528ms",
+            "build_stream_time": "3.964ms",
+            "create_snapshot_time": "0.011ms",
+            "delta_bytes": 0,
+            "delta_rows": 0,
+            "dmfile_data_scanned_rows": 57920,
+            "dmfile_data_skipped_rows": 942080,
+            "dmfile_lm_filter_scanned_rows": 82496,
+            "dmfile_lm_filter_skipped_rows": 917504,
+            "dmfile_mvcc_scanned_rows": 40960,
+            "dmfile_mvcc_skipped_rows": 959040,
+            "dmfile_read_time": "7.141ms",
+            "late_materialization_skip_rows": 24576,
+            "learner_read_time": "0.596ms",
+            "local_max_stream_cost_ms": "12.000ms",
+            "local_min_stream_cost_ms": "12.000ms",
+            "mvcc_input_bytes": 0,
+            "mvcc_input_rows": 0,
+            "mvcc_read_bytes": 696320,
+            "mvcc_skip_rows": 0,
+            "num_columns": 5,
+            "num_local_region": 4,
+            "num_read_tasks": 1,
+            "num_remote_region": 0,
+            "num_segments": 1,
+            "num_stale_read": 0,
+            "pushdown": {
+              "rs_operator": {
+                "children": [
+                  {
+                    "col": "category_id",
+                    "op": "equal",
+                    "value": "5"
+                  },
+                  {
+                    "col": "settle_status",
+                    "op": "equal",
+                    "value": "2"
+                  },
+                  {
+                    "op": "unsupported",
+                    "reason": "ColumnRef with field type is not supported, sig=EQString field_type=15"
+                  },
+                  {
+                    "op": "unsupported",
+                    "reason": "ColumnRef with field type is not supported, sig=EQString field_type=15"
+                  },
+                  {
+                    "class": "EqualityOrInOrBounded",
+                    "col": "settle_time",
+                    "lower": "1853898993818402816",
+                    "op": "date_range",
+                    "upper": "1853899195597979648"
+                  }
+                ],
+                "op": "and"
+              }
+            },
+            "query_read_bytes": 2595904,
+            "read_mode": "Bitmap",
+            "region_num_of_instance": [
+              {
+                "instance_id": "10.2.12.81:9523",
+                "region_num": 4
+              }
+            ],
+            "remote_max_stream_cost_ms": "0.000ms",
+            "remote_min_stream_cost_ms": "0.000ms",
+            "rs_dmfile_read_with_all": 0,
+            "rs_pack_filter_all": 0,
+            "rs_pack_filter_all_null": 0,
+            "rs_pack_filter_check_time": "0.265ms",
+            "rs_pack_filter_none": 112,
+            "rs_pack_filter_some": 11
+          }
+        }
+      ],
+      "aggregate": {
+        "numeric_sum": {
+          "delta_bytes": 0,
+          "delta_rows": 0,
+          "dmfile_data_scanned_rows": 122010,
+          "dmfile_data_skipped_rows": 1753088,
+          "dmfile_lm_filter_scanned_rows": 162970,
+          "dmfile_lm_filter_skipped_rows": 1712128,
+          "dmfile_mvcc_scanned_rows": 73728,
+          "dmfile_mvcc_skipped_rows": 1801370,
+          "late_materialization_skip_rows": 40960,
+          "mvcc_input_bytes": 0,
+          "mvcc_input_rows": 0,
+          "mvcc_read_bytes": 1253376,
+          "mvcc_skip_rows": 0,
+          "num_columns": 10,
+          "num_local_region": 8,
+          "num_read_tasks": 2,
+          "num_remote_region": 0,
+          "num_segments": 2,
+          "num_stale_read": 0,
+          "query_read_bytes": 5371050,
+          "rs_dmfile_read_with_all": 0,
+          "rs_pack_filter_all": 0,
+          "rs_pack_filter_all_null": 0,
+          "rs_pack_filter_none": 209,
+          "rs_pack_filter_some": 21
+        },
+        "time_ms_sum": {
+          "build_bitmap_time": 6.77,
+          "build_stream_time": 7.71,
+          "create_snapshot_time": 0.020999999999999998,
+          "dmfile_read_time": 13.576,
+          "learner_read_time": 1.157,
+          "local_max_stream_cost_ms": 23,
+          "local_min_stream_cost_ms": 22,
+          "remote_max_stream_cost_ms": 0,
+          "remote_min_stream_cost_ms": 0,
+          "rs_pack_filter_check_time": 0.537
+        },
+        "pushdown_by_host": {
+          "10.2.12.81:9522": {
+            "rs_operator": {
+              "children": [
+                {
+                  "col": "category_id",
+                  "op": "equal",
+                  "value": "5"
+                },
+                {
+                  "col": "settle_status",
+                  "op": "equal",
+                  "value": "2"
+                },
+                {
+                  "op": "unsupported",
+                  "reason": "ColumnRef with field type is not supported, sig=EQString field_type=15"
+                },
+                {
+                  "op": "unsupported",
+                  "reason": "ColumnRef with field type is not supported, sig=EQString field_type=15"
+                },
+                {
+                  "class": "EqualityOrInOrBounded",
+                  "col": "settle_time",
+                  "lower": "1853898993818402816",
+                  "op": "date_range",
+                  "upper": "1853899195597979648"
+                }
+              ],
+              "op": "and"
+            }
+          },
+          "10.2.12.81:9523": {
+            "rs_operator": {
+              "children": [
+                {
+                  "col": "category_id",
+                  "op": "equal",
+                  "value": "5"
+                },
+                {
+                  "col": "settle_status",
+                  "op": "equal",
+                  "value": "2"
+                },
+                {
+                  "op": "unsupported",
+                  "reason": "ColumnRef with field type is not supported, sig=EQString field_type=15"
+                },
+                {
+                  "op": "unsupported",
+                  "reason": "ColumnRef with field type is not supported, sig=EQString field_type=15"
+                },
+                {
+                  "class": "EqualityOrInOrBounded",
+                  "col": "settle_time",
+                  "lower": "1853898993818402816",
+                  "op": "date_range",
+                  "upper": "1853899195597979648"
+                }
+              ],
+              "op": "and"
+            }
+          }
+        },
+        "read_mode_by_host": {
+          "10.2.12.81:9522": "Bitmap",
+          "10.2.12.81:9523": "Bitmap"
+        }
+      }
+    },
+    {
+      "query": "P02_27h",
+      "tso": "467698758760005633",
+      "root_time": "15.6ms",
+      "ru": 104.28,
+      "table_scan_actual_rows": 12500,
+      "task_count": 2,
+      "tasks": [
+        {
+          "task_id": 2,
+          "host": "10.2.12.81:9522",
+          "status": "FINISHED",
+          "scan_details": {
+            "build_bitmap_time": "2.675ms",
+            "build_stream_time": "3.146ms",
+            "create_snapshot_time": "0.011ms",
+            "delta_bytes": 0,
+            "delta_rows": 0,
+            "dmfile_data_scanned_rows": 73728,
+            "dmfile_data_skipped_rows": 557056,
+            "dmfile_lm_filter_scanned_rows": 81920,
+            "dmfile_lm_filter_skipped_rows": 793178,
+            "dmfile_mvcc_scanned_rows": 24576,
+            "dmfile_mvcc_skipped_rows": 850522,
+            "dmfile_read_time": "6.679ms",
+            "late_materialization_skip_rows": 8192,
+            "learner_read_time": "0.540ms",
+            "local_max_stream_cost_ms": "11.000ms",
+            "local_min_stream_cost_ms": "10.000ms",
+            "mvcc_input_bytes": 0,
+            "mvcc_input_rows": 0,
+            "mvcc_read_bytes": 417792,
+            "mvcc_skip_rows": 0,
+            "num_columns": 5,
+            "num_local_region": 4,
+            "num_read_tasks": 1,
+            "num_remote_region": 0,
+            "num_segments": 1,
+            "num_stale_read": 0,
+            "pushdown": {
+              "rs_operator": {
+                "children": [
+                  {
+                    "col": "category_id",
+                    "op": "equal",
+                    "value": "5"
+                  },
+                  {
+                    "col": "settle_status",
+                    "op": "equal",
+                    "value": "2"
+                  },
+                  {
+                    "op": "unsupported",
+                    "reason": "ColumnRef with field type is not supported, sig=EQString field_type=15"
+                  },
+                  {
+                    "op": "unsupported",
+                    "reason": "ColumnRef with field type is not supported, sig=EQString field_type=15"
+                  },
+                  {
+                    "class": "EqualityOrInOrBounded",
+                    "col": "settle_time",
+                    "lower": "1853896794795147264",
+                    "op": "date_range",
+                    "upper": "1853899195597979648"
+                  }
+                ],
+                "op": "and"
+              }
+            },
+            "query_read_bytes": 3096576,
+            "read_mode": "Bitmap",
+            "region_num_of_instance": [
+              {
+                "instance_id": "10.2.12.81:9522",
+                "region_num": 4
+              }
+            ],
+            "remote_max_stream_cost_ms": "0.000ms",
+            "remote_min_stream_cost_ms": "0.000ms",
+            "rs_dmfile_read_with_all": 0,
+            "rs_pack_filter_all": 0,
+            "rs_pack_filter_all_null": 0,
+            "rs_pack_filter_check_time": "0.241ms",
+            "rs_pack_filter_none": 97,
+            "rs_pack_filter_some": 10
+          }
+        },
+        {
+          "task_id": 1,
+          "host": "10.2.12.81:9523",
+          "status": "FINISHED",
+          "scan_details": {
+            "build_bitmap_time": "2.421ms",
+            "build_stream_time": "2.823ms",
+            "create_snapshot_time": "0.010ms",
+            "delta_bytes": 0,
+            "delta_rows": 0,
+            "dmfile_data_scanned_rows": 66112,
+            "dmfile_data_skipped_rows": 933888,
+            "dmfile_lm_filter_scanned_rows": 82496,
+            "dmfile_lm_filter_skipped_rows": 917504,
+            "dmfile_mvcc_scanned_rows": 24576,
+            "dmfile_mvcc_skipped_rows": 975424,
+            "dmfile_read_time": "6.578ms",
+            "late_materialization_skip_rows": 16384,
+            "learner_read_time": "0.592ms",
+            "local_max_stream_cost_ms": "11.000ms",
+            "local_min_stream_cost_ms": "11.000ms",
+            "mvcc_input_bytes": 0,
+            "mvcc_input_rows": 0,
+            "mvcc_read_bytes": 417792,
+            "mvcc_skip_rows": 0,
+            "num_columns": 5,
+            "num_local_region": 4,
+            "num_read_tasks": 1,
+            "num_remote_region": 0,
+            "num_segments": 1,
+            "num_stale_read": 0,
+            "pushdown": {
+              "rs_operator": {
+                "children": [
+                  {
+                    "col": "category_id",
+                    "op": "equal",
+                    "value": "5"
+                  },
+                  {
+                    "col": "settle_status",
+                    "op": "equal",
+                    "value": "2"
+                  },
+                  {
+                    "op": "unsupported",
+                    "reason": "ColumnRef with field type is not supported, sig=EQString field_type=15"
+                  },
+                  {
+                    "op": "unsupported",
+                    "reason": "ColumnRef with field type is not supported, sig=EQString field_type=15"
+                  },
+                  {
+                    "class": "EqualityOrInOrBounded",
+                    "col": "settle_time",
+                    "lower": "1853896794795147264",
+                    "op": "date_range",
+                    "upper": "1853899195597979648"
+                  }
+                ],
+                "op": "and"
+              }
+            },
+            "query_read_bytes": 2858048,
+            "read_mode": "Bitmap",
+            "region_num_of_instance": [
+              {
+                "instance_id": "10.2.12.81:9523",
+                "region_num": 4
+              }
+            ],
+            "remote_max_stream_cost_ms": "0.000ms",
+            "remote_min_stream_cost_ms": "0.000ms",
+            "rs_dmfile_read_with_all": 0,
+            "rs_pack_filter_all": 0,
+            "rs_pack_filter_all_null": 0,
+            "rs_pack_filter_check_time": "0.233ms",
+            "rs_pack_filter_none": 112,
+            "rs_pack_filter_some": 11
+          }
+        }
+      ],
+      "aggregate": {
+        "numeric_sum": {
+          "delta_bytes": 0,
+          "delta_rows": 0,
+          "dmfile_data_scanned_rows": 139840,
+          "dmfile_data_skipped_rows": 1490944,
+          "dmfile_lm_filter_scanned_rows": 164416,
+          "dmfile_lm_filter_skipped_rows": 1710682,
+          "dmfile_mvcc_scanned_rows": 49152,
+          "dmfile_mvcc_skipped_rows": 1825946,
+          "late_materialization_skip_rows": 24576,
+          "mvcc_input_bytes": 0,
+          "mvcc_input_rows": 0,
+          "mvcc_read_bytes": 835584,
+          "mvcc_skip_rows": 0,
+          "num_columns": 10,
+          "num_local_region": 8,
+          "num_read_tasks": 2,
+          "num_remote_region": 0,
+          "num_segments": 2,
+          "num_stale_read": 0,
+          "query_read_bytes": 5954624,
+          "rs_dmfile_read_with_all": 0,
+          "rs_pack_filter_all": 0,
+          "rs_pack_filter_all_null": 0,
+          "rs_pack_filter_none": 209,
+          "rs_pack_filter_some": 21
+        },
+        "time_ms_sum": {
+          "build_bitmap_time": 5.096,
+          "build_stream_time": 5.968999999999999,
+          "create_snapshot_time": 0.020999999999999998,
+          "dmfile_read_time": 13.257000000000001,
+          "learner_read_time": 1.1320000000000001,
+          "local_max_stream_cost_ms": 22,
+          "local_min_stream_cost_ms": 21,
+          "remote_max_stream_cost_ms": 0,
+          "remote_min_stream_cost_ms": 0,
+          "rs_pack_filter_check_time": 0.474
+        },
+        "pushdown_by_host": {
+          "10.2.12.81:9522": {
+            "rs_operator": {
+              "children": [
+                {
+                  "col": "category_id",
+                  "op": "equal",
+                  "value": "5"
+                },
+                {
+                  "col": "settle_status",
+                  "op": "equal",
+                  "value": "2"
+                },
+                {
+                  "op": "unsupported",
+                  "reason": "ColumnRef with field type is not supported, sig=EQString field_type=15"
+                },
+                {
+                  "op": "unsupported",
+                  "reason": "ColumnRef with field type is not supported, sig=EQString field_type=15"
+                },
+                {
+                  "class": "EqualityOrInOrBounded",
+                  "col": "settle_time",
+                  "lower": "1853896794795147264",
+                  "op": "date_range",
+                  "upper": "1853899195597979648"
+                }
+              ],
+              "op": "and"
+            }
+          },
+          "10.2.12.81:9523": {
+            "rs_operator": {
+              "children": [
+                {
+                  "col": "category_id",
+                  "op": "equal",
+                  "value": "5"
+                },
+                {
+                  "col": "settle_status",
+                  "op": "equal",
+                  "value": "2"
+                },
+                {
+                  "op": "unsupported",
+                  "reason": "ColumnRef with field type is not supported, sig=EQString field_type=15"
+                },
+                {
+                  "op": "unsupported",
+                  "reason": "ColumnRef with field type is not supported, sig=EQString field_type=15"
+                },
+                {
+                  "class": "EqualityOrInOrBounded",
+                  "col": "settle_time",
+                  "lower": "1853896794795147264",
+                  "op": "date_range",
+                  "upper": "1853899195597979648"
+                }
+              ],
+              "op": "and"
+            }
+          }
+        },
+        "read_mode_by_host": {
+          "10.2.12.81:9522": "Bitmap",
+          "10.2.12.81:9523": "Bitmap"
+        }
+      }
+    },
+    {
+      "query": "P03_3d",
+      "tso": "467698758812434433",
+      "root_time": "21ms",
+      "ru": 134.43,
+      "table_scan_actual_rows": 33333,
+      "task_count": 2,
+      "tasks": [
+        {
+          "task_id": 2,
+          "host": "10.2.12.81:9522",
+          "status": "FINISHED",
+          "scan_details": {
+            "build_bitmap_time": "3.667ms",
+            "build_stream_time": "4.631ms",
+            "create_snapshot_time": "0.012ms",
+            "delta_bytes": 0,
+            "delta_rows": 0,
+            "dmfile_data_scanned_rows": 83942,
+            "dmfile_data_skipped_rows": 794624,
+            "dmfile_lm_filter_scanned_rows": 100326,
+            "dmfile_lm_filter_skipped_rows": 899674,
+            "dmfile_mvcc_scanned_rows": 40960,
+            "dmfile_mvcc_skipped_rows": 834138,
+            "dmfile_read_time": "9.146ms",
+            "late_materialization_skip_rows": 16384,
+            "learner_read_time": "0.528ms",
+            "local_max_stream_cost_ms": "12.000ms",
+            "local_min_stream_cost_ms": "11.000ms",
+            "mvcc_input_bytes": 0,
+            "mvcc_input_rows": 0,
+            "mvcc_read_bytes": 696320,
+            "mvcc_skip_rows": 0,
+            "num_columns": 5,
+            "num_local_region": 4,
+            "num_read_tasks": 2,
+            "num_remote_region": 0,
+            "num_segments": 2,
+            "num_stale_read": 0,
+            "pushdown": {
+              "rs_operator": {
+                "children": [
+                  {
+                    "col": "category_id",
+                    "op": "equal",
+                    "value": "5"
+                  },
+                  {
+                    "col": "settle_status",
+                    "op": "equal",
+                    "value": "2"
+                  },
+                  {
+                    "op": "unsupported",
+                    "reason": "ColumnRef with field type is not supported, sig=EQString field_type=15"
+                  },
+                  {
+                    "op": "unsupported",
+                    "reason": "ColumnRef with field type is not supported, sig=EQString field_type=15"
+                  },
+                  {
+                    "class": "EqualityOrInOrBounded",
+                    "col": "settle_time",
+                    "lower": "1853893152662880256",
+                    "op": "date_range",
+                    "upper": "1853899195597979648"
+                  }
+                ],
+                "op": "and"
+              }
+            },
+            "query_read_bytes": 3589078,
+            "read_mode": "Bitmap",
+            "region_num_of_instance": [
+              {
+                "instance_id": "10.2.12.81:9522",
+                "region_num": 4
+              }
+            ],
+            "remote_max_stream_cost_ms": "0.000ms",
+            "remote_min_stream_cost_ms": "0.000ms",
+            "rs_dmfile_read_with_all": 0,
+            "rs_pack_filter_all": 0,
+            "rs_pack_filter_all_null": 0,
+            "rs_pack_filter_check_time": "0.434ms",
+            "rs_pack_filter_none": 110,
+            "rs_pack_filter_some": 13
+          }
+        },
+        {
+          "task_id": 1,
+          "host": "10.2.12.81:9523",
+          "status": "FINISHED",
+          "scan_details": {
+            "build_bitmap_time": "4.302ms",
+            "build_stream_time": "4.846ms",
+            "create_snapshot_time": "0.012ms",
+            "delta_bytes": 0,
+            "delta_rows": 0,
+            "dmfile_data_scanned_rows": 81920,
+            "dmfile_data_skipped_rows": 794624,
+            "dmfile_lm_filter_scanned_rows": 106496,
+            "dmfile_lm_filter_skipped_rows": 893504,
+            "dmfile_mvcc_scanned_rows": 49152,
+            "dmfile_mvcc_skipped_rows": 950848,
+            "dmfile_read_time": "9.266ms",
+            "late_materialization_skip_rows": 24576,
+            "learner_read_time": "0.589ms",
+            "local_max_stream_cost_ms": "15.000ms",
+            "local_min_stream_cost_ms": "14.000ms",
+            "mvcc_input_bytes": 0,
+            "mvcc_input_rows": 0,
+            "mvcc_read_bytes": 835584,
+            "mvcc_skip_rows": 0,
+            "num_columns": 5,
+            "num_local_region": 4,
+            "num_read_tasks": 1,
+            "num_remote_region": 0,
+            "num_segments": 1,
+            "num_stale_read": 0,
+            "pushdown": {
+              "rs_operator": {
+                "children": [
+                  {
+                    "col": "category_id",
+                    "op": "equal",
+                    "value": "5"
+                  },
+                  {
+                    "col": "settle_status",
+                    "op": "equal",
+                    "value": "2"
+                  },
+                  {
+                    "op": "unsupported",
+                    "reason": "ColumnRef with field type is not supported, sig=EQString field_type=15"
+                  },
+                  {
+                    "op": "unsupported",
+                    "reason": "ColumnRef with field type is not supported, sig=EQString field_type=15"
+                  },
+                  {
+                    "class": "EqualityOrInOrBounded",
+                    "col": "settle_time",
+                    "lower": "1853893152662880256",
+                    "op": "date_range",
+                    "upper": "1853899195597979648"
+                  }
+                ],
+                "op": "and"
+              }
+            },
+            "query_read_bytes": 3579904,
+            "read_mode": "Bitmap",
+            "region_num_of_instance": [
+              {
+                "instance_id": "10.2.12.81:9523",
+                "region_num": 4
+              }
+            ],
+            "remote_max_stream_cost_ms": "0.000ms",
+            "remote_min_stream_cost_ms": "0.000ms",
+            "rs_dmfile_read_with_all": 0,
+            "rs_pack_filter_all": 0,
+            "rs_pack_filter_all_null": 0,
+            "rs_pack_filter_check_time": "0.310ms",
+            "rs_pack_filter_none": 110,
+            "rs_pack_filter_some": 13
+          }
+        }
+      ],
+      "aggregate": {
+        "numeric_sum": {
+          "delta_bytes": 0,
+          "delta_rows": 0,
+          "dmfile_data_scanned_rows": 165862,
+          "dmfile_data_skipped_rows": 1589248,
+          "dmfile_lm_filter_scanned_rows": 206822,
+          "dmfile_lm_filter_skipped_rows": 1793178,
+          "dmfile_mvcc_scanned_rows": 90112,
+          "dmfile_mvcc_skipped_rows": 1784986,
+          "late_materialization_skip_rows": 40960,
+          "mvcc_input_bytes": 0,
+          "mvcc_input_rows": 0,
+          "mvcc_read_bytes": 1531904,
+          "mvcc_skip_rows": 0,
+          "num_columns": 10,
+          "num_local_region": 8,
+          "num_read_tasks": 3,
+          "num_remote_region": 0,
+          "num_segments": 3,
+          "num_stale_read": 0,
+          "query_read_bytes": 7168982,
+          "rs_dmfile_read_with_all": 0,
+          "rs_pack_filter_all": 0,
+          "rs_pack_filter_all_null": 0,
+          "rs_pack_filter_none": 220,
+          "rs_pack_filter_some": 26
+        },
+        "time_ms_sum": {
+          "build_bitmap_time": 7.968999999999999,
+          "build_stream_time": 9.477,
+          "create_snapshot_time": 0.024,
+          "dmfile_read_time": 18.412,
+          "learner_read_time": 1.117,
+          "local_max_stream_cost_ms": 27,
+          "local_min_stream_cost_ms": 25,
+          "remote_max_stream_cost_ms": 0,
+          "remote_min_stream_cost_ms": 0,
+          "rs_pack_filter_check_time": 0.744
+        },
+        "pushdown_by_host": {
+          "10.2.12.81:9522": {
+            "rs_operator": {
+              "children": [
+                {
+                  "col": "category_id",
+                  "op": "equal",
+                  "value": "5"
+                },
+                {
+                  "col": "settle_status",
+                  "op": "equal",
+                  "value": "2"
+                },
+                {
+                  "op": "unsupported",
+                  "reason": "ColumnRef with field type is not supported, sig=EQString field_type=15"
+                },
+                {
+                  "op": "unsupported",
+                  "reason": "ColumnRef with field type is not supported, sig=EQString field_type=15"
+                },
+                {
+                  "class": "EqualityOrInOrBounded",
+                  "col": "settle_time",
+                  "lower": "1853893152662880256",
+                  "op": "date_range",
+                  "upper": "1853899195597979648"
+                }
+              ],
+              "op": "and"
+            }
+          },
+          "10.2.12.81:9523": {
+            "rs_operator": {
+              "children": [
+                {
+                  "col": "category_id",
+                  "op": "equal",
+                  "value": "5"
+                },
+                {
+                  "col": "settle_status",
+                  "op": "equal",
+                  "value": "2"
+                },
+                {
+                  "op": "unsupported",
+                  "reason": "ColumnRef with field type is not supported, sig=EQString field_type=15"
+                },
+                {
+                  "op": "unsupported",
+                  "reason": "ColumnRef with field type is not supported, sig=EQString field_type=15"
+                },
+                {
+                  "class": "EqualityOrInOrBounded",
+                  "col": "settle_time",
+                  "lower": "1853893152662880256",
+                  "op": "date_range",
+                  "upper": "1853899195597979648"
+                }
+              ],
+              "op": "and"
+            }
+          }
+        },
+        "read_mode_by_host": {
+          "10.2.12.81:9522": "Bitmap",
+          "10.2.12.81:9523": "Bitmap"
+        }
+      }
+    },
+    {
+      "query": "P04_30d",
+      "tso": "467698758864863233",
+      "root_time": "25.2ms",
+      "ru": 112.62,
+      "table_scan_actual_rows": 114852,
+      "task_count": 2,
+      "tasks": [
+        {
+          "task_id": 2,
+          "host": "10.2.12.81:9522",
+          "status": "FINISHED",
+          "scan_details": {
+            "build_bitmap_time": "2.499ms",
+            "build_stream_time": "3.005ms",
+            "create_snapshot_time": "0.013ms",
+            "delta_bytes": 0,
+            "delta_rows": 0,
+            "dmfile_data_scanned_rows": 245760,
+            "dmfile_data_skipped_rows": 385024,
+            "dmfile_lm_filter_scanned_rows": 245760,
+            "dmfile_lm_filter_skipped_rows": 629338,
+            "dmfile_mvcc_scanned_rows": 16384,
+            "dmfile_mvcc_skipped_rows": 858714,
+            "dmfile_read_time": "12.237ms",
+            "late_materialization_skip_rows": 0,
+            "learner_read_time": "0.637ms",
+            "local_max_stream_cost_ms": "19.000ms",
+            "local_min_stream_cost_ms": "17.000ms",
+            "mvcc_input_bytes": 0,
+            "mvcc_input_rows": 0,
+            "mvcc_read_bytes": 278528,
+            "mvcc_skip_rows": 0,
+            "num_columns": 5,
+            "num_local_region": 4,
+            "num_read_tasks": 1,
+            "num_remote_region": 0,
+            "num_segments": 1,
+            "num_stale_read": 0,
+            "pushdown": {
+              "rs_operator": {
+                "children": [
+                  {
+                    "col": "settle_status",
+                    "op": "equal",
+                    "value": "2"
+                  },
+                  {
+                    "op": "unsupported",
+                    "reason": "ColumnRef with field type is not supported, sig=EQString field_type=15"
+                  },
+                  {
+                    "op": "unsupported",
+                    "reason": "ColumnRef with field type is not supported, sig=EQString field_type=15"
+                  },
+                  {
+                    "col": "category_id",
+                    "op": "equal",
+                    "value": "5"
+                  },
+                  {
+                    "class": "EqualityOrInOrBounded",
+                    "col": "settle_time",
+                    "lower": "1853829380988469248",
+                    "op": "date_range",
+                    "upper": "1853899195597979648"
+                  }
+                ],
+                "op": "and"
+              }
+            },
+            "query_read_bytes": 3428629,
+            "read_mode": "Bitmap",
+            "region_num_of_instance": [
+              {
+                "instance_id": "10.2.12.81:9522",
+                "region_num": 4
+              }
+            ],
+            "remote_max_stream_cost_ms": "0.000ms",
+            "remote_min_stream_cost_ms": "0.000ms",
+            "rs_dmfile_read_with_all": 0,
+            "rs_pack_filter_all": 0,
+            "rs_pack_filter_all_null": 0,
+            "rs_pack_filter_check_time": "0.219ms",
+            "rs_pack_filter_none": 77,
+            "rs_pack_filter_some": 30
+          }
+        },
+        {
+          "task_id": 1,
+          "host": "10.2.12.81:9523",
+          "status": "FINISHED",
+          "scan_details": {
+            "build_bitmap_time": "2.499ms",
+            "build_stream_time": "2.952ms",
+            "create_snapshot_time": "0.011ms",
+            "delta_bytes": 0,
+            "delta_rows": 0,
+            "dmfile_data_scanned_rows": 229952,
+            "dmfile_data_skipped_rows": 770048,
+            "dmfile_lm_filter_scanned_rows": 229952,
+            "dmfile_lm_filter_skipped_rows": 770048,
+            "dmfile_mvcc_scanned_rows": 16384,
+            "dmfile_mvcc_skipped_rows": 983616,
+            "dmfile_read_time": "12.651ms",
+            "late_materialization_skip_rows": 0,
+            "learner_read_time": "0.557ms",
+            "local_max_stream_cost_ms": "20.000ms",
+            "local_min_stream_cost_ms": "18.000ms",
+            "mvcc_input_bytes": 0,
+            "mvcc_input_rows": 0,
+            "mvcc_read_bytes": 278528,
+            "mvcc_skip_rows": 0,
+            "num_columns": 5,
+            "num_local_region": 4,
+            "num_read_tasks": 1,
+            "num_remote_region": 0,
+            "num_segments": 1,
+            "num_stale_read": 0,
+            "pushdown": {
+              "rs_operator": {
+                "children": [
+                  {
+                    "col": "settle_status",
+                    "op": "equal",
+                    "value": "2"
+                  },
+                  {
+                    "op": "unsupported",
+                    "reason": "ColumnRef with field type is not supported, sig=EQString field_type=15"
+                  },
+                  {
+                    "op": "unsupported",
+                    "reason": "ColumnRef with field type is not supported, sig=EQString field_type=15"
+                  },
+                  {
+                    "col": "category_id",
+                    "op": "equal",
+                    "value": "5"
+                  },
+                  {
+                    "class": "EqualityOrInOrBounded",
+                    "col": "settle_time",
+                    "lower": "1853829380988469248",
+                    "op": "date_range",
+                    "upper": "1853899195597979648"
+                  }
+                ],
+                "op": "and"
+              }
+            },
+            "query_read_bytes": 3220468,
+            "read_mode": "Bitmap",
+            "region_num_of_instance": [
+              {
+                "instance_id": "10.2.12.81:9523",
+                "region_num": 4
+              }
+            ],
+            "remote_max_stream_cost_ms": "0.000ms",
+            "remote_min_stream_cost_ms": "0.000ms",
+            "rs_dmfile_read_with_all": 0,
+            "rs_pack_filter_all": 0,
+            "rs_pack_filter_all_null": 0,
+            "rs_pack_filter_check_time": "0.251ms",
+            "rs_pack_filter_none": 94,
+            "rs_pack_filter_some": 29
+          }
+        }
+      ],
+      "aggregate": {
+        "numeric_sum": {
+          "delta_bytes": 0,
+          "delta_rows": 0,
+          "dmfile_data_scanned_rows": 475712,
+          "dmfile_data_skipped_rows": 1155072,
+          "dmfile_lm_filter_scanned_rows": 475712,
+          "dmfile_lm_filter_skipped_rows": 1399386,
+          "dmfile_mvcc_scanned_rows": 32768,
+          "dmfile_mvcc_skipped_rows": 1842330,
+          "late_materialization_skip_rows": 0,
+          "mvcc_input_bytes": 0,
+          "mvcc_input_rows": 0,
+          "mvcc_read_bytes": 557056,
+          "mvcc_skip_rows": 0,
+          "num_columns": 10,
+          "num_local_region": 8,
+          "num_read_tasks": 2,
+          "num_remote_region": 0,
+          "num_segments": 2,
+          "num_stale_read": 0,
+          "query_read_bytes": 6649097,
+          "rs_dmfile_read_with_all": 0,
+          "rs_pack_filter_all": 0,
+          "rs_pack_filter_all_null": 0,
+          "rs_pack_filter_none": 171,
+          "rs_pack_filter_some": 59
+        },
+        "time_ms_sum": {
+          "build_bitmap_time": 4.998,
+          "build_stream_time": 5.957,
+          "create_snapshot_time": 0.024,
+          "dmfile_read_time": 24.887999999999998,
+          "learner_read_time": 1.194,
+          "local_max_stream_cost_ms": 39,
+          "local_min_stream_cost_ms": 35,
+          "remote_max_stream_cost_ms": 0,
+          "remote_min_stream_cost_ms": 0,
+          "rs_pack_filter_check_time": 0.47
+        },
+        "pushdown_by_host": {
+          "10.2.12.81:9522": {
+            "rs_operator": {
+              "children": [
+                {
+                  "col": "settle_status",
+                  "op": "equal",
+                  "value": "2"
+                },
+                {
+                  "op": "unsupported",
+                  "reason": "ColumnRef with field type is not supported, sig=EQString field_type=15"
+                },
+                {
+                  "op": "unsupported",
+                  "reason": "ColumnRef with field type is not supported, sig=EQString field_type=15"
+                },
+                {
+                  "col": "category_id",
+                  "op": "equal",
+                  "value": "5"
+                },
+                {
+                  "class": "EqualityOrInOrBounded",
+                  "col": "settle_time",
+                  "lower": "1853829380988469248",
+                  "op": "date_range",
+                  "upper": "1853899195597979648"
+                }
+              ],
+              "op": "and"
+            }
+          },
+          "10.2.12.81:9523": {
+            "rs_operator": {
+              "children": [
+                {
+                  "col": "settle_status",
+                  "op": "equal",
+                  "value": "2"
+                },
+                {
+                  "op": "unsupported",
+                  "reason": "ColumnRef with field type is not supported, sig=EQString field_type=15"
+                },
+                {
+                  "op": "unsupported",
+                  "reason": "ColumnRef with field type is not supported, sig=EQString field_type=15"
+                },
+                {
+                  "col": "category_id",
+                  "op": "equal",
+                  "value": "5"
+                },
+                {
+                  "class": "EqualityOrInOrBounded",
+                  "col": "settle_time",
+                  "lower": "1853829380988469248",
+                  "op": "date_range",
+                  "upper": "1853899195597979648"
+                }
+              ],
+              "op": "and"
+            }
+          }
+        },
+        "read_mode_by_host": {
+          "10.2.12.81:9522": "Bitmap",
+          "10.2.12.81:9523": "Bitmap"
+        }
+      }
+    },
+    {
+      "query": "P05_outside",
+      "tso": "467698758930399233",
+      "root_time": "13.3ms",
+      "ru": 84.12,
+      "table_scan_actual_rows": 588378,
+      "task_count": 2,
+      "tasks": [
+        {
+          "task_id": 2,
+          "host": "10.2.12.81:9522",
+          "status": "FINISHED",
+          "scan_details": {
+            "build_bitmap_time": "0.557ms",
+            "build_stream_time": "1.132ms",
+            "create_snapshot_time": "0.014ms",
+            "delta_bytes": 0,
+            "delta_rows": 0,
+            "dmfile_data_scanned_rows": 303104,
+            "dmfile_data_skipped_rows": 696896,
+            "dmfile_lm_filter_scanned_rows": 0,
+            "dmfile_lm_filter_skipped_rows": 0,
+            "dmfile_mvcc_scanned_rows": 0,
+            "dmfile_mvcc_skipped_rows": 0,
+            "dmfile_read_time": "5.135ms",
+            "late_materialization_skip_rows": 0,
+            "learner_read_time": "0.592ms",
+            "local_max_stream_cost_ms": "7.000ms",
+            "local_min_stream_cost_ms": "6.000ms",
+            "mvcc_input_bytes": 0,
+            "mvcc_input_rows": 0,
+            "mvcc_read_bytes": 0,
+            "mvcc_skip_rows": 0,
+            "num_columns": 1,
+            "num_local_region": 4,
+            "num_read_tasks": 2,
+            "num_remote_region": 0,
+            "num_segments": 2,
+            "num_stale_read": 0,
+            "pushdown": {
+              "rs_operator": {
+                "col": "settle_time",
+                "op": "equal",
+                "value": "1921139283817660416"
+              }
+            },
+            "query_read_bytes": 2727936,
+            "read_mode": "Bitmap",
+            "region_num_of_instance": [
+              {
+                "instance_id": "10.2.12.81:9522",
+                "region_num": 4
+              }
+            ],
+            "remote_max_stream_cost_ms": "0.000ms",
+            "remote_min_stream_cost_ms": "0.000ms",
+            "rs_dmfile_read_with_all": 0,
+            "rs_pack_filter_all": 0,
+            "rs_pack_filter_all_null": 0,
+            "rs_pack_filter_check_time": "0.161ms",
+            "rs_pack_filter_none": 86,
+            "rs_pack_filter_some": 37
+          }
+        },
+        {
+          "task_id": 1,
+          "host": "10.2.12.81:9523",
+          "status": "FINISHED",
+          "scan_details": {
+            "build_bitmap_time": "2.002ms",
+            "build_stream_time": "2.226ms",
+            "create_snapshot_time": "0.011ms",
+            "delta_bytes": 0,
+            "delta_rows": 0,
+            "dmfile_data_scanned_rows": 286720,
+            "dmfile_data_skipped_rows": 713280,
+            "dmfile_lm_filter_scanned_rows": 0,
+            "dmfile_lm_filter_skipped_rows": 0,
+            "dmfile_mvcc_scanned_rows": 8192,
+            "dmfile_mvcc_skipped_rows": 991808,
+            "dmfile_read_time": "5.033ms",
+            "late_materialization_skip_rows": 0,
+            "learner_read_time": "0.576ms",
+            "local_max_stream_cost_ms": "9.000ms",
+            "local_min_stream_cost_ms": "7.000ms",
+            "mvcc_input_bytes": 0,
+            "mvcc_input_rows": 0,
+            "mvcc_read_bytes": 139264,
+            "mvcc_skip_rows": 0,
+            "num_columns": 1,
+            "num_local_region": 4,
+            "num_read_tasks": 1,
+            "num_remote_region": 0,
+            "num_segments": 1,
+            "num_stale_read": 0,
+            "pushdown": {
+              "rs_operator": {
+                "col": "settle_time",
+                "op": "equal",
+                "value": "1921139283817660416"
+              }
+            },
+            "query_read_bytes": 2580480,
+            "read_mode": "Bitmap",
+            "region_num_of_instance": [
+              {
+                "instance_id": "10.2.12.81:9523",
+                "region_num": 4
+              }
+            ],
+            "remote_max_stream_cost_ms": "0.000ms",
+            "remote_min_stream_cost_ms": "0.000ms",
+            "rs_dmfile_read_with_all": 0,
+            "rs_pack_filter_all": 0,
+            "rs_pack_filter_all_null": 0,
+            "rs_pack_filter_check_time": "0.136ms",
+            "rs_pack_filter_none": 88,
+            "rs_pack_filter_some": 35
+          }
+        }
+      ],
+      "aggregate": {
+        "numeric_sum": {
+          "delta_bytes": 0,
+          "delta_rows": 0,
+          "dmfile_data_scanned_rows": 589824,
+          "dmfile_data_skipped_rows": 1410176,
+          "dmfile_lm_filter_scanned_rows": 0,
+          "dmfile_lm_filter_skipped_rows": 0,
+          "dmfile_mvcc_scanned_rows": 8192,
+          "dmfile_mvcc_skipped_rows": 991808,
+          "late_materialization_skip_rows": 0,
+          "mvcc_input_bytes": 0,
+          "mvcc_input_rows": 0,
+          "mvcc_read_bytes": 139264,
+          "mvcc_skip_rows": 0,
+          "num_columns": 2,
+          "num_local_region": 8,
+          "num_read_tasks": 3,
+          "num_remote_region": 0,
+          "num_segments": 3,
+          "num_stale_read": 0,
+          "query_read_bytes": 5308416,
+          "rs_dmfile_read_with_all": 0,
+          "rs_pack_filter_all": 0,
+          "rs_pack_filter_all_null": 0,
+          "rs_pack_filter_none": 174,
+          "rs_pack_filter_some": 72
+        },
+        "time_ms_sum": {
+          "build_bitmap_time": 2.5589999999999997,
+          "build_stream_time": 3.3579999999999997,
+          "create_snapshot_time": 0.025,
+          "dmfile_read_time": 10.168,
+          "learner_read_time": 1.168,
+          "local_max_stream_cost_ms": 16,
+          "local_min_stream_cost_ms": 13,
+          "remote_max_stream_cost_ms": 0,
+          "remote_min_stream_cost_ms": 0,
+          "rs_pack_filter_check_time": 0.29700000000000004
+        },
+        "pushdown_by_host": {
+          "10.2.12.81:9522": {
+            "rs_operator": {
+              "col": "settle_time",
+              "op": "equal",
+              "value": "1921139283817660416"
+            }
+          },
+          "10.2.12.81:9523": {
+            "rs_operator": {
+              "col": "settle_time",
+              "op": "equal",
+              "value": "1921139283817660416"
+            }
+          }
+        },
+        "read_mode_by_host": {
+          "10.2.12.81:9522": "Bitmap",
+          "10.2.12.81:9523": "Bitmap"
+        }
+      }
+    },
+    {
+      "query": "P06_production",
+      "tso": "467698758983090178",
+      "root_time": "85.8ms",
+      "ru": 759.8,
+      "table_scan_actual_rows": 12500,
+      "task_count": 2,
+      "tasks": [
+        {
+          "task_id": 2,
+          "host": "10.2.12.81:9522",
+          "status": "FINISHED",
+          "scan_details": {
+            "build_bitmap_time": "3.260ms",
+            "build_stream_time": "5.503ms",
+            "create_snapshot_time": "0.013ms",
+            "delta_bytes": 0,
+            "delta_rows": 0,
+            "dmfile_data_scanned_rows": 57920,
+            "dmfile_data_skipped_rows": 942080,
+            "dmfile_lm_filter_scanned_rows": 66112,
+            "dmfile_lm_filter_skipped_rows": 933888,
+            "dmfile_mvcc_scanned_rows": 16384,
+            "dmfile_mvcc_skipped_rows": 858714,
+            "dmfile_read_time": "74.984ms",
+            "late_materialization_skip_rows": 8192,
+            "learner_read_time": "0.557ms",
+            "local_max_stream_cost_ms": "61.000ms",
+            "local_min_stream_cost_ms": "59.000ms",
+            "mvcc_input_bytes": 0,
+            "mvcc_input_rows": 0,
+            "mvcc_read_bytes": 278528,
+            "mvcc_skip_rows": 0,
+            "num_columns": 29,
+            "num_local_region": 4,
+            "num_read_tasks": 2,
+            "num_remote_region": 0,
+            "num_segments": 2,
+            "num_stale_read": 0,
+            "pushdown": {
+              "rs_operator": {
+                "children": [
+                  {
+                    "col": "category_id",
+                    "op": "equal",
+                    "value": "5"
+                  },
+                  {
+                    "col": "settle_status",
+                    "op": "equal",
+                    "value": "2"
+                  },
+                  {
+                    "op": "unsupported",
+                    "reason": "ColumnRef with field type is not supported, sig=EQString field_type=15"
+                  },
+                  {
+                    "op": "unsupported",
+                    "reason": "ColumnRef with field type is not supported, sig=EQString field_type=15"
+                  },
+                  {
+                    "class": "EqualityOrInOrBounded",
+                    "col": "settle_time",
+                    "lower": "1853896794795147264",
+                    "op": "date_range",
+                    "upper": "1853899195597979648"
+                  }
+                ],
+                "op": "and"
+              }
+            },
+            "query_read_bytes": 21577797,
+            "read_mode": "Bitmap",
+            "region_num_of_instance": [
+              {
+                "instance_id": "10.2.12.81:9522",
+                "region_num": 4
+              }
+            ],
+            "remote_max_stream_cost_ms": "0.000ms",
+            "remote_min_stream_cost_ms": "0.000ms",
+            "rs_dmfile_read_with_all": 0,
+            "rs_pack_filter_all": 0,
+            "rs_pack_filter_all_null": 0,
+            "rs_pack_filter_check_time": "0.500ms",
+            "rs_pack_filter_none": 114,
+            "rs_pack_filter_some": 9
+          }
+        },
+        {
+          "task_id": 1,
+          "host": "10.2.12.81:9523",
+          "status": "FINISHED",
+          "scan_details": {
+            "build_bitmap_time": "2.514ms",
+            "build_stream_time": "3.320ms",
+            "create_snapshot_time": "0.011ms",
+            "delta_bytes": 0,
+            "delta_rows": 0,
+            "dmfile_data_scanned_rows": 73728,
+            "dmfile_data_skipped_rows": 679936,
+            "dmfile_lm_filter_scanned_rows": 81920,
+            "dmfile_lm_filter_skipped_rows": 918080,
+            "dmfile_mvcc_scanned_rows": 16384,
+            "dmfile_mvcc_skipped_rows": 983616,
+            "dmfile_read_time": "64.121ms",
+            "late_materialization_skip_rows": 8192,
+            "learner_read_time": "0.574ms",
+            "local_max_stream_cost_ms": "71.000ms",
+            "local_min_stream_cost_ms": "69.000ms",
+            "mvcc_input_bytes": 0,
+            "mvcc_input_rows": 0,
+            "mvcc_read_bytes": 278528,
+            "mvcc_skip_rows": 0,
+            "num_columns": 29,
+            "num_local_region": 4,
+            "num_read_tasks": 1,
+            "num_remote_region": 0,
+            "num_segments": 1,
+            "num_stale_read": 0,
+            "pushdown": {
+              "rs_operator": {
+                "children": [
+                  {
+                    "col": "category_id",
+                    "op": "equal",
+                    "value": "5"
+                  },
+                  {
+                    "col": "settle_status",
+                    "op": "equal",
+                    "value": "2"
+                  },
+                  {
+                    "op": "unsupported",
+                    "reason": "ColumnRef with field type is not supported, sig=EQString field_type=15"
+                  },
+                  {
+                    "op": "unsupported",
+                    "reason": "ColumnRef with field type is not supported, sig=EQString field_type=15"
+                  },
+                  {
+                    "class": "EqualityOrInOrBounded",
+                    "col": "settle_time",
+                    "lower": "1853896794795147264",
+                    "op": "date_range",
+                    "upper": "1853899195597979648"
+                  }
+                ],
+                "op": "and"
+              }
+            },
+            "query_read_bytes": 27440632,
+            "read_mode": "Bitmap",
+            "region_num_of_instance": [
+              {
+                "instance_id": "10.2.12.81:9523",
+                "region_num": 4
+              }
+            ],
+            "remote_max_stream_cost_ms": "0.000ms",
+            "remote_min_stream_cost_ms": "0.000ms",
+            "rs_dmfile_read_with_all": 0,
+            "rs_pack_filter_all": 0,
+            "rs_pack_filter_all_null": 0,
+            "rs_pack_filter_check_time": "0.224ms",
+            "rs_pack_filter_none": 113,
+            "rs_pack_filter_some": 10
+          }
+        }
+      ],
+      "aggregate": {
+        "numeric_sum": {
+          "delta_bytes": 0,
+          "delta_rows": 0,
+          "dmfile_data_scanned_rows": 131648,
+          "dmfile_data_skipped_rows": 1622016,
+          "dmfile_lm_filter_scanned_rows": 148032,
+          "dmfile_lm_filter_skipped_rows": 1851968,
+          "dmfile_mvcc_scanned_rows": 32768,
+          "dmfile_mvcc_skipped_rows": 1842330,
+          "late_materialization_skip_rows": 16384,
+          "mvcc_input_bytes": 0,
+          "mvcc_input_rows": 0,
+          "mvcc_read_bytes": 557056,
+          "mvcc_skip_rows": 0,
+          "num_columns": 58,
+          "num_local_region": 8,
+          "num_read_tasks": 3,
+          "num_remote_region": 0,
+          "num_segments": 3,
+          "num_stale_read": 0,
+          "query_read_bytes": 49018429,
+          "rs_dmfile_read_with_all": 0,
+          "rs_pack_filter_all": 0,
+          "rs_pack_filter_all_null": 0,
+          "rs_pack_filter_none": 227,
+          "rs_pack_filter_some": 19
+        },
+        "time_ms_sum": {
+          "build_bitmap_time": 5.773999999999999,
+          "build_stream_time": 8.823,
+          "create_snapshot_time": 0.024,
+          "dmfile_read_time": 139.105,
+          "learner_read_time": 1.131,
+          "local_max_stream_cost_ms": 132,
+          "local_min_stream_cost_ms": 128,
+          "remote_max_stream_cost_ms": 0,
+          "remote_min_stream_cost_ms": 0,
+          "rs_pack_filter_check_time": 0.724
+        },
+        "pushdown_by_host": {
+          "10.2.12.81:9522": {
+            "rs_operator": {
+              "children": [
+                {
+                  "col": "category_id",
+                  "op": "equal",
+                  "value": "5"
+                },
+                {
+                  "col": "settle_status",
+                  "op": "equal",
+                  "value": "2"
+                },
+                {
+                  "op": "unsupported",
+                  "reason": "ColumnRef with field type is not supported, sig=EQString field_type=15"
+                },
+                {
+                  "op": "unsupported",
+                  "reason": "ColumnRef with field type is not supported, sig=EQString field_type=15"
+                },
+                {
+                  "class": "EqualityOrInOrBounded",
+                  "col": "settle_time",
+                  "lower": "1853896794795147264",
+                  "op": "date_range",
+                  "upper": "1853899195597979648"
+                }
+              ],
+              "op": "and"
+            }
+          },
+          "10.2.12.81:9523": {
+            "rs_operator": {
+              "children": [
+                {
+                  "col": "category_id",
+                  "op": "equal",
+                  "value": "5"
+                },
+                {
+                  "col": "settle_status",
+                  "op": "equal",
+                  "value": "2"
+                },
+                {
+                  "op": "unsupported",
+                  "reason": "ColumnRef with field type is not supported, sig=EQString field_type=15"
+                },
+                {
+                  "op": "unsupported",
+                  "reason": "ColumnRef with field type is not supported, sig=EQString field_type=15"
+                },
+                {
+                  "class": "EqualityOrInOrBounded",
+                  "col": "settle_time",
+                  "lower": "1853896794795147264",
+                  "op": "date_range",
+                  "upper": "1853899195597979648"
+                }
+              ],
+              "op": "and"
+            }
+          }
+        },
+        "read_mode_by_host": {
+          "10.2.12.81:9522": "Bitmap",
+          "10.2.12.81:9523": "Bitmap"
+        }
+      }
+    }
+  ]
+}
