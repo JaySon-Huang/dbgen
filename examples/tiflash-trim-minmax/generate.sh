@@ -72,7 +72,7 @@ echo "dbgen=${dbgen_bin} jobs=${jobs} rows_per_file=${rows_per_file} sentinel_pr
     --rows-count 10000 \
     --jobs "${jobs}" \
     --format csv \
-    --compression zstd \
+    --compression gzip \
     --compress-level 1 \
     --size "${target_file_size}" \
     --seed "${seed}" \
