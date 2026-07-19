@@ -94,14 +94,15 @@ target/release/dbgen-load \
   --input-dir /data/trim-minmax/1m \
   --host 10.2.12.79 --port 8020 --user root \
   --database test --table bc_bet_records_1m_stream \
-  --batch-size 1000 \
-  --checkpoint /tmp/dbgen-load-bc-bet-records-1m-stream.json
+  --batch-size 1000 --concurrency 8
 ```
 
 Use `--dry-run` first to decompress and validate every CSV record and the target
 schema without inserting rows. By default, a real load refuses to start when
-the target table is non-empty. A checkpoint is updated only after a transaction
-commits and may be used to resume an interrupted load.
+the target table is non-empty. Concurrent workers may commit batches out of
+order; the generated primary key preserves the source row order for queries
+using `ORDER BY id`. If any worker fails, clear the partially loaded table and
+restart the complete data set.
 
 With dbgen v0.8.0 and the checked-in seed, the verified 1-million-row profile
 contains 1,000,000 rows, 45 fields per row, 102 sentinel rows, and 3,053 rows
