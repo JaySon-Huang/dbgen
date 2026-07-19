@@ -57,20 +57,21 @@ JOBS=32 SENTINEL_PROBABILITY=0.0001 \
 ```
 
 The scripts refuse to write into a non-empty output directory. Generated CSV
-files use zstd level 1 and contain no header. The 1 million row profile uses
+files use gzip level 1 and contain no header. The 1 million row profile uses
 four 250,000-row generator ranges. The 500 million row profile uses one hundred
 5-million-row generator ranges. File names emitted by dbgen preserve the
 lexicographic row-range order expected by `IMPORT INTO`.
 
 On the current template, the verified 1-million-row sample is approximately
-456 MB before compression and 118 MB with zstd level 1. Allow roughly
-230-250 GB for the uncompressed 500-million-row stream and 60-70 GB for its
-compressed CSV files; actual usage depends on dbgen version and filesystem.
+456 MiB before compression and 159 MiB with gzip level 1. Allow roughly
+230-250 GB for the uncompressed 500-million-row stream and remeasure available
+space for gzip output before a full run; actual usage depends on dbgen version
+and filesystem.
 
 Each output directory contains:
 
 - `bc_bet_records_213-schema.sql`: table DDL;
-- `bc_bet_records_213*.csv.zst`: compressed data files;
+- `bc_bet_records_213*.csv.gz`: compressed data files;
 - `generation.env`: the parameters used for this run.
 
 Validate the generated files before upload. This streams and decompresses the
@@ -79,6 +80,28 @@ entire data set without materializing an uncompressed copy:
 ```sh
 examples/tiflash-trim-minmax/validate-csv.sh /data/trim-minmax/1m
 ```
+
+## Stream into TiDB in generation order
+
+Build the Rust loader and insert the gzip CSV records sequentially. The loader
+sorts dbgen file names lexicographically, preserves row order within each file,
+and commits one multi-value statement per 1,000 rows:
+
+```sh
+cargo build --release --features tidb-loader --bin dbgen-load
+
+target/release/dbgen-load \
+  --input-dir /data/trim-minmax/1m \
+  --host 10.2.12.79 --port 8020 --user root \
+  --database test --table bc_bet_records_1m_stream \
+  --batch-size 1000 \
+  --checkpoint /tmp/dbgen-load-bc-bet-records-1m-stream.json
+```
+
+Use `--dry-run` first to decompress and validate every CSV record and the target
+schema without inserting rows. By default, a real load refuses to start when
+the target table is non-empty. A checkpoint is updated only after a transaction
+commits and may be used to resume an interrupted load.
 
 With dbgen v0.8.0 and the checked-in seed, the verified 1-million-row profile
 contains 1,000,000 rows, 45 fields per row, 102 sentinel rows, and 3,053 rows

@@ -10,8 +10,8 @@ fi
 out_dir=$1
 metadata=${out_dir}/generation.env
 
-if ! command -v zstd >/dev/null 2>&1; then
-    echo "zstd is required to validate compressed CSV files." >&2
+if ! command -v gzip >/dev/null 2>&1; then
+    echo "gzip is required to validate compressed CSV files." >&2
     exit 1
 fi
 
@@ -27,7 +27,7 @@ if [[ -z "${expected_rows}" ]]; then
 fi
 
 shopt -s nullglob
-data_files=("${out_dir}"/bc_bet_records_213*.csv.zst)
+data_files=("${out_dir}"/bc_bet_records_213*.csv.gz)
 shopt -u nullglob
 if [[ ${#data_files[@]} -eq 0 ]]; then
     echo "No compressed CSV files found in ${out_dir}" >&2
@@ -36,7 +36,7 @@ fi
 
 echo "Validating ${#data_files[@]} files; this streams the complete data set."
 
-zstd -q -dc "${data_files[@]}" | awk -F, -v expected_rows="${expected_rows}" '
+gzip -cd "${data_files[@]}" | awk -F, -v expected_rows="${expected_rows}" '
     {
         rows++
         if (NF != 45) {

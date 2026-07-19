@@ -4,13 +4,13 @@
 -- 3. Replace the URI below with the generated CSV location.
 
 IMPORT INTO bc_bet_records_213
-FROM 's3://<bucket>/<prefix>/bc_bet_records_213*.csv.zst'
+FROM 's3://<bucket>/<prefix>/bc_bet_records_213*.csv.gz'
 FORMAT 'csv'
 WITH thread = 16, detached;
 
 -- For files on the TiDB server disk, use an absolute path instead:
 -- IMPORT INTO bc_bet_records_213
--- FROM '/absolute/path/to/out/500m/bc_bet_records_213*.csv.zst'
+-- FROM '/absolute/path/to/out/500m/bc_bet_records_213*.csv.gz'
 -- FORMAT 'csv'
 -- WITH thread = 16, detached;
 

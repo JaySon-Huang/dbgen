@@ -82,7 +82,7 @@ echo "dbgen=${dbgen_bin} jobs=${jobs} rows_per_file=${rows_per_file} sentinel_pr
     --initialize "@sentinel_probability := ${sentinel_probability}"
 
 schema_file=${out_dir}/bc_bet_records_213-schema.sql
-data_file_count=$(find "${out_dir}" -maxdepth 1 -name 'bc_bet_records_213*.csv.zst' -print | wc -l | tr -d ' ')
+data_file_count=$(find "${out_dir}" -maxdepth 1 -name 'bc_bet_records_213*.csv.gz' -print | wc -l | tr -d ' ')
 if [[ ! -s "${schema_file}" || "${data_file_count}" -eq 0 ]]; then
     echo "Generation did not produce the expected schema and CSV files." >&2
     exit 1
